@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthStore';
 import AuthService from '../services/AuthService';
 
-
 const validators = {
   email: v => v.length > 0,
   password: v => v.length >= 8
@@ -17,7 +16,7 @@ class Login extends React.Component {
       value: '',
       valid: false
     },
-    password:  {
+    password: {
       value: '',
       valid: false
     },
@@ -30,9 +29,9 @@ class Login extends React.Component {
     wrongCredentials: false
   }
 
-  
+
   handleChange = (e) => {
-    e.target.className += " was-validated"; 
+    e.target.className += " was-validated";
     const { name, value } = e.target
     const isValid = validators[name](value)
 
@@ -45,8 +44,8 @@ class Login extends React.Component {
     })
   }
 
-  handleBlur = ({name}) => {
-    
+  handleBlur = ({ name }) => {
+
     this.setState({
       touch: {
         ...this.state.touch,
@@ -68,11 +67,10 @@ class Login extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e)
-
-    AuthService.authenticate({email: this.state.email, password: this.state.password}).then(
+    
+    AuthService.authenticate({ email: this.state.email, password: this.state.password }).then(
       response => {
-        this.setState({goToHome: true})
+        this.setState({ goToHome: true })
         this.props.onUserChange(response.data)
       },
       error => {
@@ -89,11 +87,11 @@ class Login extends React.Component {
   }
 
   render() {
-    const {email, password, errors, touch } = this.state
+    const { email, password, errors, touch } = this.state
     const hasErrors = Object.values(errors).some(el => el === true)
 
     if (this.state.goToHome) {
-      return <Redirect to="/"/>
+      return <Redirect to="/" />
     }
 
 
@@ -103,64 +101,64 @@ class Login extends React.Component {
           <MDBCol>
             <MDBCard>
               <MDBCardBody>
-                <form 
+                <form
                   className="needs-validation"
-                  onSubmit={(e)=> console.log(e)}
+                  onSubmit={(e) => console.log(e)}
                   noValidate
                 >
                   <p className="h5 text-center mb-4">Sign in</p>
-                  <div className="grey-text">
-                    <MDBInput
-                      background
-                      label="Type your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      success="right"
-                      name="email"
-                      onBlur={this.handleBlur}
-                      value={email.value}
-                      onChange={this.handleChange}
-                      touch={touch.email}
-                      error={errors.email}
-                      required
-                    />
-                    <div className="valid-feedback">Looks good!</div>
-                    <div className="invalid-feedback">Provide a valid name!</div>
-              <MDBInput
-                value={this.state.fname}
-                name="fname"
-                onChange={this.changeHandler}
-                type="text"
-                id="materialFormRegisterNameEx"
-                label="First name"
-                required
-              >
-                <div className="valid-feedback">Looks good!</div>
-              </MDBInput>
-                    <MDBInput
-                      background
-                      label="Type your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      name="password"
-                      onBlur={this.handleBlur}
-                      value={password.value}
-                      onChange={this.handleChange}
-                      touch={touch.password}
-                      error={errors.password}
-                      className={password.valid ? "is-valid" : "is-invalid"}
-                      required
-                    />
-                    <div className="invalid-feedback">
-                      Please provide a valid password.
+                    <div className="grey-text">
+                      <MDBInput
+                        background
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        success="right"
+                        name="email"
+                        onBlur={this.handleBlur}
+                        value={email.value}
+                        onChange={this.handleChange}
+                        touch={touch.email}
+                        error={errors.email}
+                        required
+                      />
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Provide a valid name!</div>
+                      <MDBInput
+                        value={this.state.fname}
+                        name="fname"
+                        onChange={this.changeHandler}
+                        type="text"
+                        id="materialFormRegisterNameEx"
+                        label="First name"
+                        required
+                      >
+                        <div className="valid-feedback">Looks good!</div>
+                      </MDBInput>
+                      <MDBInput
+                        background
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        type="password"
+                        name="password"
+                        onBlur={this.handleBlur}
+                        value={password.value}
+                        onChange={this.handleChange}
+                        touch={touch.password}
+                        error={errors.password}
+                        className={password.valid ? "is-valid" : "is-invalid"}
+                        required
+                      />
+                      <div className="invalid-feedback">
+                        Please provide a valid password.
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-center">
+                    <div className="text-center">
                     <MDBBtn
-                    color={`${hasErrors ? 'danger' : 'success'}`}
-                    disabled={hasErrors}>
+                      color={`${hasErrors ? 'danger' : 'success'}`}
+                      disabled={hasErrors}>
                       Login
                     </MDBBtn>
                   </div>
@@ -183,6 +181,6 @@ const LoginWithAuthContext = (loginProps) => {
   );
 }
 
-export default LoginWithAuthContext 
+export default LoginWithAuthContext
 
 

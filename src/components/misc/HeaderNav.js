@@ -36,11 +36,14 @@ class HeaderNav extends React.Component {
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav left>
-                  <MDBNavItem active>
-                      <MDBNavLink to="/"><MDBIcon icon="home" /> Home</MDBNavLink>
+                  <MDBNavItem>
+                      <MDBNavLink to="/"><MDBIcon icon="home" size="2x"/></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="/login"> Login</MDBNavLink>
+                      <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x"/></MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                      <MDBNavLink to="/logout"><MDBIcon icon="sign-out-alt" size="2x"/></MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>

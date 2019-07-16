@@ -17,17 +17,17 @@ class SearchStore extends React.Component {
   onRequestChange = (request) => {
     this.setState({ request }, ()=> {
       // Mockeo los datos de prueba
-      this.setState({
+      /* this.setState({
         results: data
-      }, ()=>{console.log(this.state.results)})
+      }, ()=>{console.log(this.state.results)}) */
       
-      /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204
+      /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204*/
       SearchJourneyService.search(this.state.request).then(
         response => {
           this.state.handleResultsChange(response.data)
         },
-        error => console.log(error)
-    ) */
+        error => console.log(error) 
+    ) 
     })
   }
 

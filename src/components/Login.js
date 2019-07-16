@@ -103,7 +103,7 @@ class Login extends React.Component {
               <MDBCardBody>
                 <form
                   className="needs-validation"
-                  onSubmit={(e) => console.log(e)}
+                  onSubmit={this.handleSubmit}
                   noValidate
                 >
                   <p className="h5 text-center mb-4">Sign in</p>
@@ -125,17 +125,7 @@ class Login extends React.Component {
                       />
                       <div className="valid-feedback">Looks good!</div>
                       <div className="invalid-feedback">Provide a valid name!</div>
-                      <MDBInput
-                        value={this.state.fname}
-                        name="fname"
-                        onChange={this.changeHandler}
-                        type="text"
-                        id="materialFormRegisterNameEx"
-                        label="First name"
-                        required
-                      >
-                        <div className="valid-feedback">Looks good!</div>
-                      </MDBInput>
+                  
                       <MDBInput
                         background
                         label="Type your password"
@@ -148,7 +138,6 @@ class Login extends React.Component {
                         onChange={this.handleChange}
                         touch={touch.password}
                         error={errors.password}
-                        className={password.valid ? "is-valid" : "is-invalid"}
                         required
                       />
                       <div className="invalid-feedback">
@@ -158,7 +147,8 @@ class Login extends React.Component {
                     <div className="text-center">
                     <MDBBtn
                       color={`${hasErrors ? 'danger' : 'success'}`}
-                      disabled={hasErrors}>
+                      disabled={hasErrors}
+                      type='submit'>
                       Login
                     </MDBBtn>
                   </div>

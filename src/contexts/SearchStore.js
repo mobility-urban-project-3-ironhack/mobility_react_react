@@ -1,5 +1,5 @@
 import React from 'react'
-//import SearchJourneyService from '../services/SearchJourneyService';
+import SearchJourneyService from '../services/SearchJourneyService';
 import data from '../data.json'
 
 
@@ -15,20 +15,20 @@ class SearchStore extends React.Component {
   }
 
   onRequestChange = (request) => {
-    
+  /*    
     this.setState({ request }, ()=> {
         this.onResultsChange(data)
       }, ()=>{console.log(this.state.results)})
       
-      /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204
+     Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204
         DESCOMENTAR EL IMPORT DEL SERVICIO 
-
+ */
         SearchJourneyService.search(this.state.request).then(
         response => {
           this.state.onResultsChange(response.data)
         },
         error => console.log(error) 
-    )  */
+    ) 
   }
 
   onResultsChange = (results) => {

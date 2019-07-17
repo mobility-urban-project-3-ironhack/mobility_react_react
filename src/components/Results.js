@@ -3,8 +3,9 @@ import { MDBContainer } from 'mdbreact';
 import MapComponent from './MapComponent';
 import data from '../data'
 import CardExample from './misc/JourneyCard';
+import { SearchContext } from '../contexts/SearchStore';
 
-const key = process.env.GOOGLE_MAP_KEY || "AIzaSyDi-w0iYfqgZOOELu3fJD8vF6yTy7Jvbm4"
+const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
 class Results extends React.Component {
 
@@ -75,6 +76,7 @@ class Results extends React.Component {
   }
 
   render() {
+    
     return (    
     <MDBContainer className="text-center mt-3 pt-5 px-0">
       <MapComponent 
@@ -87,12 +89,28 @@ class Results extends React.Component {
         isMarkerShown={this.state.isMarkerShown}
         directions={this.state.directions}
         afterMapMount={this.afterMapMount}
+        defaultOptions={{
+          streetViewControl: false,
+          scaleControl: false,
+          mapTypeControl: false,
+          panControl: false,
+          zoomControl: false,
+          rotateControl: false,
+          fullscreenControl: false
+        }}
       />
+      <p>results: {this.props.results}</p>
       {Object.keys(data).map((type, i) => (<CardExample type={type} data={ data[type]} key={i } journeyDrawingMap={this.journeyDrawingMap} />))}
    </MDBContainer>
   )}
 }
 
-export default Results;
+const ResultsWithSearchStore = searchProps => (
+  <SearchContext.Consumer>
+    {consumerProps => (<Results {...consumerProps} {...searchProps} />)}
+  </SearchContext.Consumer>
+)
+
+export default ResultsWithSearchStore;
 
 

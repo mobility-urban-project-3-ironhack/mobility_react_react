@@ -6,6 +6,7 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
     <GoogleMap
       defaultZoom={props.defaultZoom}
       defaultCenter={props.userLocation}
+      defaultOptions={props.defaultOptions}
     >{props.directions && <DirectionsRenderer directions={props.directions} />}
     </GoogleMap>
     <br />

@@ -8,6 +8,8 @@ import {
   MDBNavItem, 
   MDBNavLink, 
   MDBIcon } from 'mdbreact';
+import { AuthContext } from '../../contexts/AuthStore';
+import { SearchContext } from '../../contexts/SearchStore';
 
 
 class HeaderNav extends React.Component {
@@ -39,12 +41,28 @@ class HeaderNav extends React.Component {
                   <MDBNavItem>
                       <MDBNavLink to="/"><MDBIcon icon="home" size="2x"/></MDBNavLink>
                   </MDBNavItem>
+                  {!this.props.isAuthenticated() && (
                   <MDBNavItem>
                       <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x"/></MDBNavLink>
                   </MDBNavItem>
+                  )}
+                  {!this.props.results > 0 && (
                   <MDBNavItem>
-                      <MDBNavLink to="/logout"><MDBIcon icon="sign-out-alt" size="2x"/></MDBNavLink>
+                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/"><MDBIcon icon="search" size="2x"/></MDBNavLink>
                   </MDBNavItem>
+                  )}
+                  {this.props.isAuthenticated() && (
+                  <MDBNavItem>
+                      <MDBNavLink to="/historical"><MDBIcon icon="history" size="2x"/></MDBNavLink>
+                  </MDBNavItem>
+                  )}
+                  {this.props.isAuthenticated() && (
+                  <MDBNavItem>
+                      <MDBNavLink onClick={()=>this.props.onUserChange()} to="/">
+                        <MDBIcon icon="sign-out-alt" size="2x" className="red-text pr-3"/>
+                      </MDBNavLink>
+                  </MDBNavItem>
+                  )}
                 </MDBNavbarNav>
               </MDBCollapse>
             </MDBNavbar>
@@ -53,4 +71,17 @@ class HeaderNav extends React.Component {
   }
 }
 
-export default HeaderNav;
+const HeaderNavWithAuthContext = loginProps => (
+  <AuthContext.Consumer>
+    {consumerProps => (<HeaderNav {...consumerProps} {...loginProps} />)}
+  </AuthContext.Consumer>
+)
+
+
+const HeaderNavWithAuthContextWithSearchStore = searchProps => (
+  <SearchContext.Consumer>
+    {consumerProps => <HeaderNavWithAuthContext {...consumerProps} {...searchProps} /> }
+  </SearchContext.Consumer>
+)
+
+export default HeaderNavWithAuthContextWithSearchStore;

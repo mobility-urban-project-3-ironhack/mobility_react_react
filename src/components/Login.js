@@ -70,10 +70,11 @@ class Login extends React.Component {
     
     AuthService.authenticate({ email: this.state.email, password: this.state.password }).then(
       response => {
+        this.props.onUserChange(response.data)      
         this.setState({ goToHome: true })
-        this.props.onUserChange(response.data)
       },
       error => {
+        console.info(error)
         this.setState({
           wrongCredentials: true,
           errors: {
@@ -93,8 +94,7 @@ class Login extends React.Component {
     if (this.state.goToHome) {
       return <Redirect to="/" />
     }
-
-
+    
     return (
       <MDBContainer className="mt-5 pt-5">
         <MDBRow>

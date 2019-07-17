@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchJourneyService from '../services/SearchJourneyService';
-import data from '../data'
+//import SearchJourneyService from '../services/SearchJourneyService';
+import data from '../data.json'
 
 
 const SearchContext = React.createContext();
@@ -15,26 +15,24 @@ class SearchStore extends React.Component {
   }
 
   onRequestChange = (request) => {
+    
     this.setState({ request }, ()=> {
-      // Mockeo los datos de prueba
-      /* this.setState({
-        results: data
-      }, ()=>{console.log(this.state.results)}) */
+        this.onResultsChange(data)
+      }, ()=>{console.log(this.state.results)})
       
-      /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204*/
-      SearchJourneyService.search(this.state.request).then(
+      /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204
+        DESCOMENTAR EL IMPORT DEL SERVICIO 
+
+        SearchJourneyService.search(this.state.request).then(
         response => {
-          this.state.handleResultsChange(response.data)
+          this.state.onResultsChange(response.data)
         },
         error => console.log(error) 
-    ) 
-    })
+    )  */
   }
 
   onResultsChange = (results) => {
-    this.setState({ results }, ()=> {
-      console.log(JSON.stringify(this.state.results))
-      console.log(this.state.results)/*  (<Redirect to='/results'/>) */})
+    this.setState({ results })
   }
 
   render() {

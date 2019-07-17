@@ -1,7 +1,7 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import { MDBBtn } from 'mdbreact';
 import { SearchContext } from '../contexts/SearchStore';
-
 
 class JourneyForm extends React.Component {
   state = {
@@ -35,6 +35,7 @@ class JourneyForm extends React.Component {
   onhandleSubmit = (e) => {
 
     e.preventDefault()
+
     this.setState({
       origin: {
         place: document.getElementById('origin').value,
@@ -62,7 +63,13 @@ class JourneyForm extends React.Component {
     )
   }
 
+  
+
   render() {
+    if(this.state.origin.place && this.state.destination.place) {
+      return <Redirect to='/results'/>
+    }
+    
     return (
       <form onSubmit={this.onhandleSubmit}>
         <div className="grey-text px-3">

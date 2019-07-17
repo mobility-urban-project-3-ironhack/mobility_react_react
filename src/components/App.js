@@ -5,6 +5,8 @@ import Home from './Home';
 import Login from './Login';
 import Results from './Results';
 import Footer from './misc/Footer';
+import PrivateRoute from '../guards/PrivateRoute';
+import Historical from './Historical';
 
 
 
@@ -13,8 +15,9 @@ function App() {
     <div className="App">
       <HeaderNav/>
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/results' component={Results}/>
+        <PrivateRoute exact path='/' component={Home}/>
+        <PrivateRoute exact path='/results' component={Results}/>
+        <PrivateRoute exact path='/historical' component={Historical}/>
         <Route exact path='/login' component={Login}/>
       </Switch>
       <Footer/>

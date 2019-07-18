@@ -22,7 +22,8 @@ class SearchStore extends React.Component {
       }, ()=>{console.log(this.state.results)}) */
       
       /* Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204*/
-      SearchJourneyService.search(this.state.request).then(
+      SearchJourneyService.search(this.state.request)
+      .then(
         response => {
           this.state.handleResultsChange(response.data)
         },

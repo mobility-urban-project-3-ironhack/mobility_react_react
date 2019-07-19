@@ -1,6 +1,7 @@
 import React from 'react';
 import { MDBContainer } from 'mdbreact';
 import MapSearchComponent from './MapSearchComponent';
+import LineGraph from './graphs/LineGraph';
 
 
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
@@ -16,6 +17,9 @@ class Home extends React.Component {
         loadingElement={<div />}
         containerElement={<div/>}
         mapElement={<div />} />
+        <LineGraph/>
+        <LineGraph/>
+        <LineGraph/>
     </MDBContainer>
   )}
 }

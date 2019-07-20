@@ -1,69 +1,76 @@
 import React from 'react';
 import { MDBContainer } from 'mdbreact';
 import MapComponent from './MapComponent';
-import data from '../data'
+import data from '../dat.json'
 import CardExample from './misc/JourneyCard';
 import { SearchContext } from '../contexts/SearchStore';
+import Recomendation from '../services/RecomendationService'
 
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
 class Results extends React.Component {
 
   state = {
-    map: null,
-    journey: {
+    origin2: {},
+    waypoints: []
+  }
+  
+
+  // componentWillMount (){
+  //   navigator.geolocation.getCurrentPosition(pos => {
+  //     this.setState({
+  //       origin2: this.state.origin,
+  //       destination2: {
+  //         lat: pos.coords.latitude+0.01,
+  //         lng: pos.coords.longitude+0.2
+  //       }
+  //     })
+  //   })
+  // }
+
+  componentDidMount() {   
+    this.setState({
       origin: {
-        lat: 40.412651,
-        lng: -3.707505
+        lat: this.props.request.origin.coords.lat,
+        lng: this.props.request.origin.coords.lng,
       },
       destination: {
-        lat: 40.417766,
-        lng: -3.753839
-      },
-      waypoints: [],
-      directions: ''
-    },
-
-    userLocation: {
-      lat: 40.416766,
-      lng: -3.703839
-    },
-    directions: '',
+        lat: this.props.request.destination.coords.lat,
+        lng: this.props.request.destination.coords.lng,
+      }
+    })
   }
 
-  componentWillMount (){
-    navigator.geolocation.getCurrentPosition(pos => {
+  componentDidUpdate(prevProps, prevState) {
+    
+    if (prevProps.results !== this.props.results) {
+      /* Recomendation.recomendationJourney(this.props.results)
       this.setState({
-        userLocation: {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude
-      }})
-    });
-  }
-
-  journeyDrawingMap(e) {
-    console.log(e.target.dataset.waypoints)
-  }
-
-
-  componentDidMount() {
-   setTimeout(this.afterMapMount.bind(this), 1000)
+        dataMap: Recomendation.recomendationJourney(this.props.results)
+      }) */
+      
+      this.setState({
+        waypoints: this.props.results.driving[0].wayPoints,
+        dataRecomendation: this.props.results.driving,
+        }) 
+      this.afterMapMount()
+    }
   }
 
   afterMapMount() {
     const DirectionsService = new window.google.maps.DirectionsService();
-    const {origin, destination, waypoints} = this.state.journey
+    //const DirectionsService2 = new window.google.maps.DirectionsService();
+
+    const {origin, destination, destination2, origin2 } = this.state
 
     DirectionsService.route({
       origin: new window.google.maps.LatLng(origin.lat, origin.lng),
       destination: new window.google.maps.LatLng(destination.lat, destination.lng),
-      waypoints: waypoints.map(waypoint => {
-        return {
-          location: new window.google.maps.LatLng(waypoint.lat, waypoint.lng),
-          stopover: true
-          }
-      }),
-      travelMode: window.google.maps.TravelMode.DRIVING,
+      waypoints: [/* {
+        location: new window.google.maps.LatLng(destination2.lat-0.1, destination2.lng-0.1),
+        stopover: true
+        } */], 
+      travelMode: window.google.maps.TravelMode.DRIVING, 
     }, (result, status) => {
       if (status === window.google.maps.DirectionsStatus.OK) {
         this.setState({
@@ -73,34 +80,48 @@ class Results extends React.Component {
         console.error(`error fetching directions ${result}`);
       }
     })
+
+    // DirectionsService2.route({
+    //   origin: new window.google.maps.LatLng(destination2.lat, destination2.lng),
+    //   destination: new window.google.maps.LatLng(origin2.lat+0.5, origin2.lng+0.02),
+    //   waypoints: [], 
+    //   travelMode: window.google.maps.TravelMode.DRIVING, 
+    // }, (result, status) => {
+    //   if (status === window.google.maps.DirectionsStatus.OK) {
+    //     this.setState({
+    //       directions2: result,
+    //     });
+    //   } else {
+    //     console.error(`error fetching directions en 2 ${result}`);
+    //   }
+    // })
+
+
   }
 
   render() {
-    
+
     return (    
     <MDBContainer className="text-center mt-3 pt-5 px-0">
+
+      {(this.props.results) && this.state.dataRecomendation &&
       <MapComponent 
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px`, width:`100%` }} />}
         mapElement={<div style={{ height: `100%`, width:`100%` }} />}
         defaultZoom={15}
-        userLocation={this.state.userLocation}
-        isMarkerShown={this.state.isMarkerShown}
+        userLocation={this.state.origin2}
+      //  isMarkerShown={this.state.isMarkerShown}
         directions={this.state.directions}
+        directions2={this.state.directions2}
         afterMapMount={this.afterMapMount}
-        defaultOptions={{
-          streetViewControl: false,
-          scaleControl: false,
-          mapTypeControl: false,
-          panControl: false,
-          zoomControl: false,
-          rotateControl: false,
-          fullscreenControl: false
-        }}
-      />
-      <p>results: {this.props.results}</p>
-      {Object.keys(data).map((type, i) => (<CardExample type={type} data={ data[type]} key={i } journeyDrawingMap={this.journeyDrawingMap} />))}
+      />  }
+      <hr/>
+      {this.state.dataRecomendation && (<div>{<CardExample type='driving' data={this.state.dataRecomendation} isFavorite={true}/>}<hr/></div>)}
+      
+      
+      {Object.keys(data).map((type, i) => (<CardExample type={type} data={ data[type]} key={i} />))}
    </MDBContainer>
   )}
 }

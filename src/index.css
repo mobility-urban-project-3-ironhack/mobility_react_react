@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.prueba {
+  transition: width 2s;
+}
+
+html, body {
+  background-color: #2bbbad !important
+}

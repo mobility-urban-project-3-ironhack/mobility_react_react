@@ -1,0 +1,89 @@
+car2go: [
+  {
+    "wayPoints": [
+      {
+        "transitMode": "walking",
+        "distance": 146,
+        "time": 115,
+        "wayPoint": {
+          "lat": 40.3959794,
+          "lng": -3.700033599999999
+        },
+        "additionalInfo": {}
+      },
+      {
+        "transitMode": "driving",
+        "distance": 5268,
+        "time": 839,
+        "wayPoint": {},
+        "additionalInfo": {
+          "plate": "7952GPH",
+          "batery": 61
+        }
+      }
+    ],
+    "totalDistance": 5414,
+    "totalTime": 954,
+    "totalCalories": 11.5,
+    "co2": 0,
+    "cost": 3.495833333333333
+  },
+  {
+    "wayPoints": [
+      {
+        "transitMode": "walking",
+        "distance": 201,
+        "time": 154,
+        "wayPoint": {
+          "lat": 40.3959195,
+          "lng": -3.6993805
+        },
+        "additionalInfo": {}
+      },
+      {
+        "transitMode": "driving",
+        "distance": 5323,
+        "time": 870,
+        "wayPoint": {},
+        "additionalInfo": {
+          "plate": "6694TYJ",
+          "batery": 98
+        }
+      }
+    ],
+    "totalDistance": 5524,
+    "totalTime": 1024,
+    "totalCalories": 15.4,
+    "co2": 0,
+    "cost": 3.625
+  },
+  {
+    "wayPoints": [
+      {
+        "transitMode": "walking",
+        "distance": 785,
+        "time": 635,
+        "wayPoint": {
+          "lat": 40.3947912,
+          "lng": -3.7014338
+        },
+        "additionalInfo": {}
+      },
+      {
+        "transitMode": "driving",
+        "distance": 5208,
+        "time": 791,
+        "wayPoint": {},
+        "additionalInfo": {
+          "plate": "3690LUI",
+          "batery": 95
+        }
+      }
+    ],
+    "totalDistance": 5993,
+    "totalTime": 1426,
+    "totalCalories": 63.5,
+    "co2": 0,
+    "cost": 3.2958333333333334
+  }
+]

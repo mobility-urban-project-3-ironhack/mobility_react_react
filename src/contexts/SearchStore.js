@@ -1,45 +1,37 @@
 import React from 'react'
 import SearchJourneyService from '../services/SearchJourneyService';
-import data from '../data.json'
-
 
 const SearchContext = React.createContext();
 
 class SearchStore extends React.Component {
   state = {
     request: {
-      origin: {},
-      destination: {}
     },
-    results: {}
   }
 
   onRequestChange = (request) => {
-  /*    
-    this.setState({ request }, ()=> {
-        this.onResultsChange(data)
-      }, ()=>{console.log(this.state.results)})
-      
-     Llamada al servicio, por ahora falla, hace una petición OPTIONS con error 204
-        DESCOMENTAR EL IMPORT DEL SERVICIO 
- */
-        SearchJourneyService.search(this.state.request).then(
-        response => {
-          this.state.onResultsChange(response.data)
-        },
-        error => console.log(error) 
-    ) 
+
+    this.setState({ request }, ()=> { 
+      SearchJourneyService.search(this.state.request)
+        .then(
+          response => {
+            this.onResultsChange(response.data)
+          },
+          error => console.log(error)
+        )
+    })
   }
 
   onResultsChange = (results) => {
-    this.setState({ results })
+    console.log('mandado data')
+    this.setState({ results }, ()=> console.log(this.state.results))
   }
 
   render() {
     return (
       <SearchContext.Provider value={{
         request: this.state.request,
-        results: this.results,
+        results: this.state.results,
         handleRequestChange: this.onRequestChange,
         handleResultsChange: this.onResultsChange
       }}>

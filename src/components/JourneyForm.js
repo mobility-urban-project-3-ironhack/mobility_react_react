@@ -35,6 +35,10 @@ class JourneyForm extends React.Component {
   onhandleSubmit = (e) => {
 
     e.preventDefault()
+    setTimeout(this.saveSearch.bind(this), 1000)
+  }
+
+  saveSearch() {
 
     this.setState({
       origin: {
@@ -52,18 +56,17 @@ class JourneyForm extends React.Component {
         }
       },
     }, ()=>{
-      this.props.handleRequestChange({origin: {
-        place: this.state.origin.place,
-        coords: this.state.origin.coords,
+      this.props.handleRequestChange({
+         origin: {
+          place: this.state.origin.place,
+          coords: this.state.origin.coords,
       }, destination: {
-        place: this.state.destination.place,
-        coords: this.state.destination.coords,
+          place: this.state.destination.place,
+          coords: this.state.destination.coords,
       }})
     }
     )
   }
-
-  
 
   render() {
     if(this.state.origin.place && this.state.destination.place) {
@@ -71,7 +74,8 @@ class JourneyForm extends React.Component {
     }
     
     return (
-      <form onSubmit={this.onhandleSubmit}>
+      <form onSubmit={this.onhandleSubmit} className='p-3 rounded' style={{backgroundColor: 'white'}}>
+        <h3>Move on!</h3>
         <div className="grey-text px-3">
           <div className="md-form form-group md-bg">
             <input 

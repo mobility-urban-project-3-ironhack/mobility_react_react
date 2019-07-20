@@ -3,7 +3,7 @@ import { MDBFooter } from "mdbreact";
 
 const Footer = () => {
   return (
-    <MDBFooter color="default-color" className="font-small fixed-bottom d-flex justify-content-between flex-wrap">
+    <MDBFooter color='cloudy-knoxville-gradient' dark className="black-text font-small fixed-bottom d-flex justify-content-between flex-wrap">
       <div className='my-2 px-5 text-center'>
         <span>Bootcamp Web Development - <strong>Final project</strong></span>
       </div>

@@ -29,31 +29,34 @@ class HeaderNav extends React.Component {
 
   render() {
     // para cambiar el background del navbar -- const bgPink = {backgroundColor: '#e91e63'}
+    //cloudy-knoxville-gradient color-block-5 
     return(
       <header>
-            <MDBNavbar color='default-color' dark expand="md" scrolling fixed="top">
+            <MDBNavbar color='cloudy-knoxville-gradient' dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
-                  <strong>Mobility Urban</strong>
+                  <strong className='black-text'>Mobility Urban</strong>
               </MDBNavbarBrand>
-              <MDBNavbarToggler onClick={ this.onClick } />
-              <MDBCollapse isOpen = { this.state.collapse } navbar>
-                <MDBNavbarNav left>
+              <MDBNavbarToggler onClick={ this.onClick }  />
+              <MDBCollapse isOpen = { this.state.collapse } navbar >
+                <MDBNavbarNav left >
                   <MDBNavItem>
-                      <MDBNavLink to="/"><MDBIcon icon="home" size="2x"/></MDBNavLink>
+                      <MDBNavLink to="/"><MDBIcon icon="home" size="2x" className='teal-text'/></MDBNavLink>
                   </MDBNavItem>
                   {!this.props.isAuthenticated() && (
                   <MDBNavItem>
-                      <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x"/></MDBNavLink>
+                      <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x" className='indigo-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
-                  {!this.props.results > 0 && (
+                  {/*!this.props.results.vtc && (
                   <MDBNavItem>
-                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/"><MDBIcon icon="search" size="2x"/></MDBNavLink>
+                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/">
+                        <MDBIcon icon="search" size="2x" className='teal-text'/>
+                      </MDBNavLink>
                   </MDBNavItem>
-                  )}
+                  )*/}
                   {this.props.isAuthenticated() && (
                   <MDBNavItem>
-                      <MDBNavLink to="/historical"><MDBIcon icon="history" size="2x"/></MDBNavLink>
+                      <MDBNavLink to="/historical"><MDBIcon icon="history" size="2x" className='teal-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
                   {this.props.isAuthenticated() && (

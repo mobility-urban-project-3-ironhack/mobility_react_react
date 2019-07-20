@@ -33,7 +33,7 @@ class HeaderNav extends React.Component {
     return(
       <header>
             <MDBNavbar color='cloudy-knoxville-gradient' dark expand="md" scrolling fixed="top">
-              <MDBNavbarBrand href="/">
+              <MDBNavbarBrand href="/search">
                   <strong className='black-text'>Mobility Urban</strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick }  />

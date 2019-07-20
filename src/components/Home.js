@@ -1,29 +1,13 @@
 import React from 'react';
-import { MDBContainer } from 'mdbreact';
-import MapSearchComponent from './MapSearchComponent';
+import { MDBContainer  } from 'mdbreact';
+import { Link } from 'react-router-dom';
 
-
-const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
-
-class Home extends React.Component {
-
-
-/* 
-  state={
-    minimice: false,
-  }
- */
-  render() {
-    return (    
-    <MDBContainer className="text-center mt-3 pt-5 px-0 prueba" color='primary-color'>
-      <MapSearchComponent 
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
-        loadingElement={<div />}
-        containerElement={<div/>}
-        mapElement={<div />} />
-    </MDBContainer>
-  )}
-}
+const Home = () => (    
+  <MDBContainer className="text-center mt-3 pt-5 px-5 prueba" style={{backgroundColor: '#fafafa '}}>
+    <Link class="btn btn-light" to='/login' value='Sign I'>Sign In</Link>
+    <Link class="btn btn-light" to='/register' value='Sign I'>Register</Link>    
+  </MDBContainer>
+)
   
 export default Home;
 
@@ -39,3 +23,4 @@ export default Home;
         }}>
 sadfas
         </div> */
+ 

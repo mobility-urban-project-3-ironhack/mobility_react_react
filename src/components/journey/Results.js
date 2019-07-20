@@ -1,10 +1,10 @@
 import React from 'react';
 import { MDBContainer } from 'mdbreact';
 import MapComponent from './MapComponent';
-import data from '../dat.json'
-import CardExample from './misc/JourneyCard';
-import { SearchContext } from '../contexts/SearchStore';
-import Recomendation from '../services/RecomendationService'
+import data from '../../dat.json'
+import CardExample from '../misc/JourneyCard';
+import { SearchContext } from '../../contexts/SearchStore';
+import Recomendation from '../../services/RecomendationService'
 
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 

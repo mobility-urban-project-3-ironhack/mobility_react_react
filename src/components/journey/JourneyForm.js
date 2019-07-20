@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { MDBBtn } from 'mdbreact';
-import { SearchContext } from '../contexts/SearchStore';
+import { SearchContext } from '../../contexts/SearchStore';
 
 class JourneyForm extends React.Component {
   state = {
@@ -33,14 +33,12 @@ class JourneyForm extends React.Component {
   }
 
   onhandleSubmit = (e) => {
-
     e.preventDefault()
     setTimeout(this.saveSearch.bind(this), 1000)
   }
 
   saveSearch() {
-
-    this.setState({
+    this.props.handleRequestChange({
       origin: {
         place: document.getElementById('origin').value,
         coords: {
@@ -55,17 +53,7 @@ class JourneyForm extends React.Component {
           lng: this.state.destination.autocomplete.getPlace().geometry.location.lng()
         }
       },
-    }, ()=>{
-      this.props.handleRequestChange({
-         origin: {
-          place: this.state.origin.place,
-          coords: this.state.origin.coords,
-      }, destination: {
-          place: this.state.destination.place,
-          coords: this.state.destination.coords,
-      }})
-    }
-    )
+    })
   }
 
   render() {

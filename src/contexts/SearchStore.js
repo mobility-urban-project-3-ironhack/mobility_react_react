@@ -4,10 +4,7 @@ import SearchJourneyService from '../services/SearchJourneyService';
 const SearchContext = React.createContext();
 
 class SearchStore extends React.Component {
-  state = {
-    request: {
-    },
-  }
+  state = {}
 
   onRequestChange = (request) => {
 
@@ -19,7 +16,7 @@ class SearchStore extends React.Component {
           },
           error => console.log(error)
         )
-    })
+    }, ()=>{console.log('request guardado: ' + this.state.request)})
   }
 
   onResultsChange = (results) => {

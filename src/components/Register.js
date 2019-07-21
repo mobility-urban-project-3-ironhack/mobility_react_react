@@ -6,13 +6,18 @@ import AuthService from '../services/AuthService';
 import HeaderNav from './misc/HeaderNav'
 
 const validators = {
+  username: v => v.length > 0,
   email: v => v.length > 0,
   password: v => v.length >= 8
 }
 
-class Login extends React.Component {
+class Register extends React.Component {
 
   state = {
+    username: {
+      value: '',
+      valid: false
+    },
     email: {
       value: '',
       valid: false
@@ -22,11 +27,12 @@ class Login extends React.Component {
       valid: false
     },
     errors: {
+      username:'',
       email: '',
       password: ''
     },
     touch: {},
-    goToHome: false,
+    shouldRedirect: false,
     wrongCredentials: false
   }
 
@@ -69,10 +75,9 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     
-    AuthService.authenticate({ email: this.state.email, password: this.state.password }).then(
-      response => {
-        this.props.onUserChange(response.data)      
-        this.setState({ goToHome: true })
+    AuthService.register({ username: this.state.username, email: this.state.email, password: this.state.password }).then(
+      response => {      
+        this.setState({ shouldRedirect: true })
       },
       error => {
         console.info(error)
@@ -89,11 +94,11 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password, errors, touch } = this.state
+    const {username, email, password, errors, touch } = this.state
     const hasErrors = Object.values(errors).some(el => el === true)
 
-    if (this.state.goToHome) {
-      return <Redirect to="/search" />
+    if (this.state.shouldRedirect) {
+      return <Redirect to="/login" />
     }
     
     return (
@@ -109,8 +114,27 @@ class Login extends React.Component {
                   onSubmit={this.handleSubmit}
                   noValidate
                 >
-                  <p className="h5 text-center mb-4">Sign in</p>
+                  <p className="h5 text-center mb-4">Register</p>
                     <div className="grey-text">
+                    <MDBInput
+                        background
+                        label="Type your username"
+                        icon="user"
+                        group
+                        type="text"
+                        success="right"
+                        name="username"
+                        onBlur={this.handleBlur}
+                        value={username.value}
+                        onChange={this.handleChange}
+                        touch={touch.username}
+                        error={errors.username}
+                        required
+                        autocomplete = 'off'
+                      />
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Provide a valid name!</div>
+
                       <MDBInput
                         background
                         label="Type your email"
@@ -125,9 +149,10 @@ class Login extends React.Component {
                         touch={touch.email}
                         error={errors.email}
                         required
+                        autocomplete = 'off'
                       />
                       <div className="valid-feedback">Looks good!</div>
-                      <div className="invalid-feedback">Provide a valid name!</div>
+                      <div className="invalid-feedback">Provide a valid email!</div>
                   
                       <MDBInput
                         background
@@ -152,7 +177,7 @@ class Login extends React.Component {
                       color={`${hasErrors ? 'danger' : 'success'}`}
                       disabled={hasErrors}
                       type='submit'>
-                      Login
+                      Register
                     </MDBBtn>
                   </div>
                 </form>
@@ -168,14 +193,7 @@ class Login extends React.Component {
   }
 }
 
-const LoginWithAuthContext = (loginProps) => {
-  return (
-    <AuthContext.Consumer>
-      {(consumerProps) => (<Login {...consumerProps} {...loginProps} />)}
-    </AuthContext.Consumer>
-  );
-}
 
-export default LoginWithAuthContext
+export default Register
 
 

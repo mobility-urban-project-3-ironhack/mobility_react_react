@@ -34,7 +34,8 @@ class HeaderNav extends React.Component {
       <header>
             <MDBNavbar color='cloudy-knoxville-gradient' dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/search">
-                  <strong className='black-text'>Mobility Urban</strong>
+                <img src='/images/logo_mu.png' style = {{"width" :40,"height":40}}/>
+                  {/* <strong className='black-text'>Mobility Urban</strong> */}
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick }  />
               <MDBCollapse isOpen = { this.state.collapse } navbar >

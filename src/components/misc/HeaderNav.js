@@ -32,12 +32,12 @@ class HeaderNav extends React.Component {
     //cloudy-knoxville-gradient color-block-5 
     return(
       <header>
-            <MDBNavbar color='cloudy-knoxville-gradient' dark expand="md" scrolling fixed="top">
+            <MDBNavbar color={this.props.color} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/search">
                 <img src='/images/logo_mu.png' style = {{"width" :40,"height":40}}/>
                   {/* <strong className='black-text'>Mobility Urban</strong> */}
               </MDBNavbarBrand>
-              <MDBNavbarToggler onClick={ this.onClick }  />
+              <MDBNavbarToggler onClick={ this.onClick }/>
               <MDBCollapse isOpen = { this.state.collapse } navbar >
                 <MDBNavbarNav left >
                   <MDBNavItem>

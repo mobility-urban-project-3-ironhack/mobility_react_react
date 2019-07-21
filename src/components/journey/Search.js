@@ -4,6 +4,7 @@ import { SearchContext } from '../../contexts/SearchStore';
 import MapSearchComponent from './MapSearchComponent';
 import Results from './Results';
 import IcoType from './ListType';
+import LineGraph from '../graphs/LineGraph';
 
 const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`
 
@@ -18,11 +19,18 @@ class Search extends React.Component {
       <MDBContainer 
       className={marginPadding}>
         {!this.props.request && (
-          <MapSearchComponent
-            googleMapURL={googleMapURL}
-            loadingElement={<div />}
-            containerElement={<div/>}
-            mapElement={<div />} />
+          <div>
+            <MapSearchComponent
+              googleMapURL={googleMapURL}
+              loadingElement={<div />}
+              containerElement={<div/>}
+              mapElement={<div />} />
+
+              <LineGraph/>
+              <LineGraph/>
+              <LineGraph/>
+          </div>
+
         )}
 
         {this.props.request && !this.props.results && (
@@ -34,6 +42,7 @@ class Search extends React.Component {
         {this.props.request && this.props.results && (
           <Results search={this.props.results}/>
         )}
+
       </MDBContainer>
     )
   }

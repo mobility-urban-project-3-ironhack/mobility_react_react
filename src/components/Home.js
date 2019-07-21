@@ -2,6 +2,8 @@ import React from 'react';
 import { MDBContainer  } from 'mdbreact';
 import { Link } from 'react-router-dom';
 
+
+
 const Home = () => (    
   <MDBContainer className="text-center mt-3 pt-5 px-5 prueba" style={{backgroundColor: '#fafafa '}}>
     <Link class="btn btn-light" to='/login'>Sign In</Link>

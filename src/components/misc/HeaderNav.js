@@ -47,22 +47,22 @@ class HeaderNav extends React.Component {
                       <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x" className='indigo-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
-                  {/*!this.props.results.vtc && (
+                  {!this.props.results && (
                   <MDBNavItem>
                       <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/">
                         <MDBIcon icon="search" size="2x" className='teal-text'/>
                       </MDBNavLink>
                   </MDBNavItem>
-                  )*/}
+                  )}
                   {this.props.isAuthenticated() && (
                   <MDBNavItem>
-                      <MDBNavLink to="/historical"><MDBIcon icon="history" size="2x" className='teal-text'/></MDBNavLink>
+                      <MDBNavLink to="/historical"><MDBIcon icon="user-edit" size="2x" className='teal-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
                   {this.props.isAuthenticated() && (
                   <MDBNavItem>
                       <MDBNavLink onClick={()=>this.props.onUserChange()} to="/">
-                        <MDBIcon icon="sign-out-alt" size="2x" className="red-text pr-3"/>
+                        <MDBIcon icon="sign-out-alt" size="2x" className="grey-text pr-3"/>
                       </MDBNavLink>
                   </MDBNavItem>
                   )}

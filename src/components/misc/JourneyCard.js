@@ -9,13 +9,19 @@ import {
   parsePrice
 } from '../../services/MiscService'
 import { MDBIcon, MDBCard, MDBCardBody, MDBCardImage, MDBListGroup, MDBListGroupItem } from 'mdbreact';
+import InputSelect from './InputSelect';
 
 
 class CardExample extends React.Component {
 
   state={
-    minimize:false
+    minimize:false,
+    selectType: 0
 
+  }
+
+  onHandleSelecType(e) {
+    this.setState({selectType: e.target.value})
   }
 
   render () {
@@ -47,6 +53,7 @@ class CardExample extends React.Component {
             {datas.time.length > 1 && (<strong> - {parseMinutes(datas.time[datas.time.length - 1])} - </strong>)}
             Distance: {<strong>{parseDistance(datas.distance[0])}</strong>}
             {datas.distance.length > 1 && (<strong> - {parseDistance(datas.distance[datas.distance.length - 1])} - </strong>)}
+        <InputSelect handleSelectType={this.state.onHandleSelecType}/>
       </MDBCardBody>
       )}
       {this.state.minimize && <p>minimize</p>}

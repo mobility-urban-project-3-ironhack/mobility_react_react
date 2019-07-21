@@ -48,7 +48,7 @@ class HeaderNav extends React.Component {
                       <MDBNavLink to="/login"><MDBIcon icon="sign-in-alt" size="2x" className='indigo-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
-                  {!this.props.results && (
+                  {this.props.isAuthenticated() && (
                   <MDBNavItem>
                       <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/search">
                         <MDBIcon icon="search" size="2x" className='teal-text'/>

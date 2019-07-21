@@ -5,6 +5,7 @@ import CardExample from '../misc/JourneyCard';
 import ListType from './ListType'
 import { SearchContext } from '../../contexts/SearchStore';
 
+
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
 class Results extends React.Component {
@@ -84,8 +85,8 @@ class Results extends React.Component {
   }
 
   render() {
-    console.log(this.state.directions)
-    return (    
+    return (
+    <div>
     <MDBContainer fluid className="text-center px-1">
       {this.state.directions.length>=1 && (
         <MapComponent 
@@ -116,6 +117,8 @@ class Results extends React.Component {
           key={i}
         />))} */}
    </MDBContainer>
+    </div>
+
   )}
 }
 

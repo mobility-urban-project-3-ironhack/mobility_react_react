@@ -4,7 +4,8 @@ import { SearchContext } from '../../contexts/SearchStore';
 import MapSearchComponent from './MapSearchComponent';
 import Results from './Results';
 import LineGraph from '../graphs/LineGraph';
-import StatsService from '../../services/StatsService'
+import StatsService from '../../services/StatsService';
+import HeaderNav from '../misc/HeaderNav'
 
 const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`
 
@@ -96,7 +97,8 @@ class Search extends React.Component {
 
     (!this.props.request) ? marginPadding ="text-center mt-4 pt-5 px-3"  : marginPadding ="text-center mt-2 pt-2 px-0"
     return (
-    
+      <div>
+      <HeaderNav/>
       <MDBContainer 
       className={marginPadding}>
         {!this.props.request && (
@@ -150,6 +152,8 @@ class Search extends React.Component {
         )}
 
       </MDBContainer>
+      </div>
+      
     )
   }
 }

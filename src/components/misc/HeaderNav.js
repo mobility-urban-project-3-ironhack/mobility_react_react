@@ -50,7 +50,7 @@ class HeaderNav extends React.Component {
                   )}
                   {!this.props.results && (
                   <MDBNavItem>
-                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/">
+                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/search">
                         <MDBIcon icon="search" size="2x" className='teal-text'/>
                       </MDBNavLink>
                   </MDBNavItem>

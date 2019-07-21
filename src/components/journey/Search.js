@@ -37,7 +37,9 @@ class Search extends React.Component {
     },
     caloriesUnit: 'Year',
     co2Unit:'Year',
-    costUnit:'Year'
+    costUnit:'Year',
+    labelYear:['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
+    labelMonth:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31']
   }
 
   componentDidMount() {
@@ -75,12 +77,25 @@ class Search extends React.Component {
       })
   }
 
+  onChangeTimeCalories = (time) => {
+    this.setState({caloriesUnit : time})
+  }
+
+  onChangeTimeCo2 = (time) => {
+    this.setState({co2Unit : time})
+  }
+
+  onChangeTimeCost = (time) => {
+    this.setState({costUnit : time})
+  }
+
+  
+
   render() {
     let marginPadding = '';
-    
+
 
     (!this.props.request) ? marginPadding ="text-center mt-4 pt-5 px-3"  : marginPadding ="text-center mt-2 pt-2 px-0"
-    console.log(this.state)
     return (
     
       <MDBContainer 
@@ -93,9 +108,34 @@ class Search extends React.Component {
               containerElement={<div/>}
               mapElement={<div />} />
 
-              <LineGraph inputs = {this.state.caloriesMonth}/>
-              
+              <div>
+                <LineGraph 
+                  inputs = {this.state.caloriesUnit === 'Year' ? this.state.caloriesYear : this.state.caloriesMonth}
+                  title = 'CALORIES EVOLUTION'
+                  labelData = {this.state.caloriesUnit === 'Year' ? this.state.labelYear : this.state.labelMonth}
+                  timeChange = {this.onChangeTimeCalories}
+                  displayAxe = {this.state.caloriesUnit === 'Year' ? true : false}/>
+                  
+              </div>
 
+              <div className = 'mt-5'>
+                <LineGraph 
+                  inputs = { this.state.co2Unit === 'Year' ? this.state.co2Year : this.state.co2Month}
+                  title = 'CO2 EVOLUTION'
+                  labelData = { this.state.co2Unit === 'Year' ? this.state.labelYear : this.state.labelMonth}
+                  timeChange = {this.onChangeTimeCo2}
+                  displayAxe = {this.state.co2Unit === 'Year' ? true : false}/>
+              </div>
+
+              <div className = 'mt-5 mb-3'>
+                <LineGraph 
+                  inputs = {this.state.costUnit === 'Year' ? this.state.priceYear : this.state.priceMonth}
+                  title = 'COST EVOLUTION'
+                  labelData = {this.state.costUnit === 'Year' ? this.state.labelYear : this.state.labelMonth}
+                  timeChange = {this.onChangeTimeCost}
+                  displayAxe = {this.state.costUnit === 'Year' ? true : false}/>
+              </div>
+              
           </div>
 
         )}

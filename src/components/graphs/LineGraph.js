@@ -2,42 +2,13 @@ import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 
-const legend = {
-  display: true,
-  position: 'bottom',
-  labels : {
-    boxWidth: 10,
-  },
-  reverse: true
-}
 
-const options = {
-  responsive:true,
-  scales: {
-    xAxes: [{
-      ticks: {
-        maxTicksLimit: 6,
-        display: true
-      },
-      gridLines: {
-        display: false,
-        drawBorder: false,           
-        lineWidth: 2,
-        color: 'dark-gray'
-      },
-      display: true
-    }],
-    yAxes: [{
-      display: false,
-    }],
-  },
-}
 
-const LineGraph = ({inputs}) =>  {
-  console.log(inputs)
+const LineGraph = ({inputs,title,labelData,timeChange,displayAxe}) =>  {
+  console.log(displayAxe)
 
    const graphData = {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
+      labels: labelData,
       datasets: [
         {
           label: 'Me',
@@ -84,19 +55,52 @@ const LineGraph = ({inputs}) =>  {
       ]
     }
 
+    const legend = {
+      display: true,
+      position: 'bottom',
+      labels : {
+        boxWidth: 10,
+      },
+      reverse: true
+    }
+    
+    const options = {
+      responsive:true,
+      scales: {
+        xAxes: [{
+          ticks: {
+            maxTicksLimit: 6,
+            display: true
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false,           
+            lineWidth: 2,
+            color: 'dark-gray'
+          },
+          display: displayAxe
+        }],
+        yAxes: [{
+          display: false,
+        }],
+      },
+    }
+
+    console.log(options.scales.xAxes)
 
     return (
+      
       <MDBContainer className='mt-3'>
-        <h5 className='mb-3'>Line Example</h5>
+        <h5 className='mb-3'>{title}</h5>
  
-        <div className="btn-group mb-3 mt-3" role="group">
+        <div className="btn-group mb-2 mt-3" role="group">
           <button
             className="btn btn-light btn-sm"
-            onClick={() => {}}>Last Month
+            onClick={() => timeChange('Month')}>Current Month
           </button>
           <button
             className="btn btn-light btn-sm"
-            onClick={() => {}}> Last Years
+            onClick={() => timeChange('Year')}> Current Year
           </button>
         </div>
         <Line data={graphData} legend={legend} options={options} />

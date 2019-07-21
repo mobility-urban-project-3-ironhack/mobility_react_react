@@ -3,7 +3,6 @@ import { MDBContainer } from 'mdbreact';
 import { SearchContext } from '../../contexts/SearchStore';
 import MapSearchComponent from './MapSearchComponent';
 import Results from './Results';
-import IcoType from './ListType';
 import LineGraph from '../graphs/LineGraph';
 import StatsService from '../../services/StatsService'
 

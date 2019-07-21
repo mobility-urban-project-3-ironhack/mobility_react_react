@@ -18,6 +18,7 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
       }}>
 
       {props.arrDirections.map((direction, i) => {
+        console.log(direction+ ' dasdf ' + i)
         // aqui una función para comprobar si es andando y meter las options para puntitos.
         return (
           <DirectionsRenderer key={i} options={{

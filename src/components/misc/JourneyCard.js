@@ -8,8 +8,9 @@ import {
   parseDistance,
   parsePrice
 } from '../../services/MiscService'
-import { MDBIcon, MDBCard, MDBCardBody, MDBCardImage, MDBListGroup, MDBListGroupItem } from 'mdbreact';
+import { MDBIcon, MDBCard, MDBCardBody, MDBCardImage,MDBCardText } from 'mdbreact';
 import InputSelect from './InputSelect';
+import { SearchContext } from '../../contexts/SearchStore';
 
 
 class CardExample extends React.Component {
@@ -20,8 +21,14 @@ class CardExample extends React.Component {
 
   }
 
+  onHandleClick() {
+    this.props.handleDataMapChange(this.props.data[this.state.selectType])
+  }
+
   onHandleSelecType(e) {
-    this.setState({selectType: e.target.value})
+    console.log(e.target.value)
+
+    this.setState({selectType: e.target.value}, ()=> console.log(e.target.value + ' . ' + this.state.selectType))
   }
 
   render () {
@@ -33,16 +40,18 @@ class CardExample extends React.Component {
     time: callBackArrObj(data, 'totalTime'),
     distance: callBackArrObj(data, 'totalDistance'),
   }
-
   return (
-    <MDBCard className="d-flex flex-row align-items-center text-left px-0 my-3 py-1 ">
+    <MDBCard 
+      className="d-flex flex-row align-items-center text-left px-0 my-3 py-1 ">
       <MDBCardImage
         className="img-fluid"
+        onClick={()=>console.log('clica' + this.props.dataMap)} 
         src={`https://dummyimage.com/32x32/dedbde/000000&text=${type}`}
       />
       {!this.state.minimize && (
         <MDBCardBody className="card-body">
-        {isFavorite && <p><MDBIcon icon="star" size="1x" className='yellow-text' />Recomendation</p>}
+          <MDBCardText  onClick={this.props.handleDataMapChange(this.props.data[this.state.selectType])} >
+        {isFavorite && <span><MDBIcon icon="star" size="1x" className='yellow-text' />Recomendation</span>}
         Price: <strong>{parsePrice(datas.cost[0])}</strong>
             {datas.cost.length > 1 && (<strong> - {parsePrice(datas.cost[datas.cost.length - 1])}€ - </strong>)}
             Co2: {(<strong>{parseCoKgm(datas.co[0])}</strong>)}
@@ -53,13 +62,19 @@ class CardExample extends React.Component {
             {datas.time.length > 1 && (<strong> - {parseMinutes(datas.time[datas.time.length - 1])} - </strong>)}
             Distance: {<strong>{parseDistance(datas.distance[0])}</strong>}
             {datas.distance.length > 1 && (<strong> - {parseDistance(datas.distance[datas.distance.length - 1])} - </strong>)}
-        <InputSelect handleSelectType={this.state.onHandleSelecType}/>
+         </MDBCardText>       
+        <InputSelect handleSelectType={this.state.onHandleSelecType} />
       </MDBCardBody>
       )}
-      {this.state.minimize && <p>minimize</p>}
     </MDBCard>
   )
-}
-}
+}}
 
-export default CardExample;
+
+const CardExampleWithSearchContext = searchProps => (
+  <SearchContext.Consumer>
+    {consumerProps => (<CardExample {...consumerProps} {...searchProps} />)}
+  </SearchContext.Consumer>
+)
+
+export default CardExampleWithSearchContext;

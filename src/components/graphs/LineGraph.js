@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import {Line} from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 
 
 
 const LineGraph = ({inputs,title,labelData,timeChange,displayAxe}) =>  {
-  console.log(displayAxe)
 
    const graphData = {
       labels: labelData,
@@ -85,8 +84,6 @@ const LineGraph = ({inputs,title,labelData,timeChange,displayAxe}) =>  {
         }],
       },
     }
-
-    console.log(options.scales.xAxes)
 
     return (
       

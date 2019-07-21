@@ -4,7 +4,6 @@ import MapComponent from './MapComponent';
 import CardExample from '../misc/JourneyCard';
 import ListType from './ListType'
 import { SearchContext } from '../../contexts/SearchStore';
-import recomendationJourney from '../../services/RecomendationService'
 
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
@@ -25,11 +24,30 @@ class Results extends React.Component {
     })
   }
 
-  componentDidMount() {     
-    let arrWayPoint = recomendationJourney(this.props.search).wayPoints
+  componentDidMount() {   
+    
+    const route = this.props.dataRoute
+
+    for (let i = 0; i <= route.length - 2; i++) {
+      const direction = new window.google.maps.DirectionsService()
+      direction.route({
+        origin: new window.google.maps.LatLng(route[i].lat, route[i].lng),
+        destination: new window.google.maps.LatLng(route[i + 1].lat, route[i + 1].lng),
+        waypoints: [],
+        travelMode: route[i + 1].transitMode.toUpperCase(),
+      }, (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          this.setState({
+            directions: [...this.state.directions, result],
+          }, ()=> console.log('directions......'+ JSON.stringify(this.state.directions)));
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      })
+    }/* 
     this.setState({
-      waypoints: this.props.results.bicycling[0].wayPoints,
-      dataRecomendation: this.props.results.driving,
+      waypoints: this.props.dataRecomendation[0].wayPoints,
+      dataRecomendation: this.props.dataRecomendation,
       origin: {
         lat: this.props.request.origin.coords.lat,
         lng: this.props.request.origin.coords.lng,
@@ -38,20 +56,13 @@ class Results extends React.Component {
         lat: this.props.request.destination.coords.lat,
         lng: this.props.request.destination.coords.lng,
       },
-      route: [{...this.props.request.origin.coords, transitMode: 'none'}, ...arrWayPoint.map(waypoint => {
-        return {
-        transitMode: waypoint.transitMode,
-        lat: waypoint.wayPoint.lat,
-        lng: waypoint.wayPoint.lng
-        } }), {...this.props.request.destination.coords, transitMode: 'none'}],
-      }, ()=> {
-        this.props.handleDataMapChange(this.state.route)
-        this.afterMapMount() 
-      }) 
+      route: this.props.dataRoute,
+      })  */
   }
 
+  
   afterMapMount() {
-    const { route } = this.state
+   /*  const { route } = this.state
     
     for (let i = 0; i <= route.length - 2; i++) {
       const direction = new window.google.maps.DirectionsService()
@@ -69,13 +80,15 @@ class Results extends React.Component {
           console.error(`error fetching directions ${result}`);
         }
       })
-    }
+    } */
   }
 
   render() {
+    console.log(this.state.directions)
     return (    
     <MDBContainer fluid className="text-center px-1">
-      <MapComponent 
+      {this.state.directions.length>=1 && (
+        <MapComponent 
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `500px`, width:`100%` }} />}
@@ -83,12 +96,15 @@ class Results extends React.Component {
         defaultZoom={15}
         arrDirections={this.state.directions}
         afterMapMount={this.afterMapMount}
-      />  
+        dataMap={this.props.route}
+        />  
+      )}
       <hr/>
-      {this.state.dataRecomendation && (<div>{
+
+      {this.props.dataRecomendation && (<div>{
       <CardExample 
         type='driving' 
-        data={this.state.dataRecomendation} 
+        data={this.props.dataRecomendation} 
         isFavorite={true}
       />}<hr/></div>)}
       <ListType search={this.props.search}/>

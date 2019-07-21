@@ -1,5 +1,6 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer, Marker } from "react-google-maps"
+import { SearchContext } from '../../contexts/SearchStore';
 
 const MapComponent = withScriptjs(withGoogleMap((props) => (
   <div>
@@ -16,26 +17,55 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
         fullscreenControl: false
       }}>
 
-    {props.directions && <DirectionsRenderer options={{
-      polylineOptions: {strokeColor: 'red'},
-      suppressMarkers: true,
-    }}  directions={props.directions} />}
+      {props.arrDirections.map((direction, i) => {
+        // aqui una función para comprobar si es andando y meter las options para puntitos.
+        return (
+          <DirectionsRenderer key={i} options={{
+            polylineOptions: {
+              strokeColor: 'DarkSlateGray ',
+              strokeWeight: '0px',
+              icons: [{
+                icon: {
+                  path: window.google.maps.SymbolPath.CIRCLE,
+                  scale: 3,
+                },
+                offset: '0',
+                repeat: '20px'
+              }],
+            },
+  
+          suppressMarkers: true,
+          
+        }}  directions={direction} />
+      )
+      })}
 
-     {props.directions && <DirectionsRenderer  options={{
-       routeIndex: 1,
-     }} directions={props.directions2} />}
-
-     <Marker 
-      icon='https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png'
-      position={props.userLocation}
-      label='prueba' />
+    {props.dataMap.map((marker, i) => {
+      // aqui una función para poner ICO según tipo de transitMode
+      return (
+        <Marker  key={i}
+        icon='https://developers.google.com/maps/documentation/javascript/examples/full/images/parking_lot_maps.png'
+        position={{lat: marker.lat, lng: marker.lng}}
+        label={marker.transitMode}/>
+      )
+    })}
 
     </GoogleMap>
     <br />  
   </div>
 )))
 
-export default MapComponent;
+
+
+const MapComponentWithSearchStore = searchProps => (
+  <SearchContext.Consumer>
+    {consumerProps => (<MapComponent {...consumerProps} {...searchProps} />)}
+  </SearchContext.Consumer>
+)
+
+
+
+export default MapComponentWithSearchStore;;
 
 
 

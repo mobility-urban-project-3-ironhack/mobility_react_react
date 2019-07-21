@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Home = () => (    
   <MDBContainer className="text-center mt-3 pt-5 px-5 prueba" style={{backgroundColor: '#fafafa '}}>
-    <Link class="btn btn-light" to='/login' value='Sign I'>Sign In</Link>
-    <Link class="btn btn-light" to='/register' value='Sign I'>Register</Link>    
+    <Link class="btn btn-light" to='/login'>Sign In</Link>
+    <Link class="btn btn-light" to='/register'>Register</Link>    
   </MDBContainer>
 )
   

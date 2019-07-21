@@ -15,6 +15,14 @@ code {
 .prueba {
   transition: width 2s;
 }
+.w-10 {
+  width: 10%
+}
+
+.w-89{
+  width: 89%
+}
+
 
 html, body {
   background-color: #2bbbad !important

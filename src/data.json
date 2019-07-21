@@ -1,191 +1,229 @@
 {
-    "bicycling": {
-        "wayPoints": [
-            {
-                "transitMode": "walking",
-                "distance": 1553,
-                "time": 1141,
-                "wayPoint": {
-                    "lat": 40.3922897,
-                    "lng": -3.6967564
-                },
-                "additionalInfo": {}
-            },
-            {
-                "transitMode": "bicycling",
-                "distance": 3306,
-                "time": 1039,
-                "wayPoint": {
-                    "lat": 40.4144826,
-                    "lng": -3.7007251
-                },
-                "additionalInfo": {}
-            },
-            {
-                "transitMode": "walking",
-                "distance": 115,
-                "time": 89,
-                "wayPoint": {
-                    "lat": 40.4140277,
-                    "lng": -3.7011321
-                },
-                "additionalInfo": {}
-            }
-        ],
-        "totalDistance": 4974,
-        "totalTime": 2269,
-        "totalCalories": 174.95,
-        "co2": 0,
-        "cost": 2
-    },
-    "driving": {
-        "wayPoints": [],
-        "totalDistance": 4883,
-        "totalTime": 1147,
-        "totalCalories": 0,
-        "co2": 571.311,
-        "cost": null
-    },
-    "walking": {
-        "wayPoints": [],
-        "totalDistance": 4335,
-        "totalTime": 3487,
-        "totalCalories": 348.70000000000005,
-        "co2": 0,
-        "cost": 0
-    },
-    "bus": {
-        "wayPoints": [
-            {
-                "transitMode": "WALKING",
-                "distance": 193,
-                "time": 138,
-                "wayPoint": {
-                    "lat": 40.3833804,
-                    "lng": -3.7027202
-                },
-                "additionalInfo": {
-                    "transitType": "",
-                    "line": "",
-                    "numStops": ""
-                }
-            },
-            {
-                "transitMode": "TRANSIT",
-                "distance": 4916,
-                "time": 1580,
-                "wayPoint": {
-                    "lat": 40.41280649999999,
-                    "lng": -3.6998306
-                },
-                "additionalInfo": {
-                    "transitType": "Bus",
-                    "line": "6",
-                    "numStops": 14
-                }
-            },
-            {
-                "transitMode": "WALKING",
-                "distance": 245,
-                "time": 185,
-                "wayPoint": {
-                    "lat": 40.4140277,
-                    "lng": -3.7011321
-                },
-                "additionalInfo": {
-                    "transitType": "",
-                    "line": "",
-                    "numStops": ""
-                }
-            }
-        ],
-        "totalDistance": 5354,
-        "totalTime": 2564,
-        "totalCalories": 0,
-        "co2": 0,
-        "cost": 1.5
-    },
-    "subway": {
-        "wayPoints": [
-            {
-                "transitMode": "WALKING",
-                "distance": 614,
-                "time": 439,
-                "wayPoint": {
-                    "lat": 40.3839571,
-                    "lng": -3.6980466
-                },
-                "additionalInfo": {
-                    "transitType": "",
-                    "line": "",
-                    "numStops": ""
-                }
-            },
-            {
-                "transitMode": "TRANSIT",
-                "distance": 4594,
-                "time": 650,
-                "wayPoint": {
-                    "lat": 40.41682,
-                    "lng": -3.70326
-                },
-                "additionalInfo": {
-                    "transitType": "Subway",
-                    "line": "3",
-                    "numStops": 6
-                }
-            },
-            {
-                "transitMode": "WALKING",
-                "distance": 454,
-                "time": 367,
-                "wayPoint": {
-                    "lat": 40.4140277,
-                    "lng": -3.7011321
-                },
-                "additionalInfo": {
-                    "transitType": "",
-                    "line": "",
-                    "numStops": ""
-                }
-            }
-        ],
-        "totalDistance": 5662,
-        "totalTime": 1757,
-        "totalCalories": 0,
-        "co2": 0,
-        "cost": 1.5
-    },
-    "vtc": [
+    "bicycling": [
         {
-            "cabify": {
-                "wayPoints": [],
-                "totalDistance": 4883,
-                "totalTime": 1327,
-                "totalCalories": 0,
-                "co2": 457.04879999999997,
-                "cost": 5.21225
-            }
-        },
-        {
-            "uber": {
-                "wayPoints": [],
-                "totalDistance": 4883,
-                "totalTime": 1387,
-                "totalCalories": 0,
-                "co2": 457.04879999999997,
-                "cost": 4.4798
-            }
+            "wayPoints": [
+                {
+                    "transitMode": "walking",
+                    "distance": 151,
+                    "time": 124,
+                    "wayPoint": {
+                        "lat": 40.4169042,
+                        "lng": -3.7024008
+                    },
+                    "additionalInfo": {}
+                },
+                {
+                    "transitMode": "bicycling",
+                    "distance": 5702,
+                    "time": 1359,
+                    "wayPoint": {
+                        "lat": 40.4516629,
+                        "lng": -3.6780542
+                    },
+                    "additionalInfo": {}
+                },
+                {
+                    "transitMode": "walking",
+                    "distance": 712,
+                    "time": 503,
+                    "wayPoint": {
+                        "lat": 40.44889209999999,
+                        "lng": -3.6728163
+                    },
+                    "additionalInfo": {}
+                }
+            ],
+            "totalDistance": 6565,
+            "totalTime": 1986,
+            "totalCalories": 130.65,
+            "co2": 0,
+            "cost": 2
         }
     ],
-    "taxi": {
-        "wayPoints": [],
-        "totalDistance": 4883,
-        "totalTime": 1447,
-        "totalCalories": 0,
-        "co2": 571.311,
-        "cost": 7.16715
-    },
+    "driving": [
+        {
+            "wayPoints": [],
+            "totalDistance": 5627,
+            "totalTime": 1125,
+            "totalCalories": 0,
+            "co2": 658.3589999999999,
+            "cost": 0
+        }
+    ],
+    "walking": [
+        {
+            "wayPoints": [],
+            "totalDistance": 5223,
+            "totalTime": 4073,
+            "totalCalories": 407.3,
+            "co2": 0,
+            "cost": 0
+        }
+    ],
+    "bus": [
+        {
+            "wayPoints": [
+                {
+                    "transitMode": "WALKING",
+                    "distance": 181,
+                    "time": 148,
+                    "wayPoint": {
+                        "lat": 40.417129,
+                        "lng": -3.702277
+                    },
+                    "additionalInfo": {
+                        "transitType": "",
+                        "line": "",
+                        "numStops": ""
+                    }
+                },
+                {
+                    "transitMode": "TRANSIT",
+                    "distance": 5155,
+                    "time": 1737,
+                    "wayPoint": {
+                        "lat": 40.44933,
+                        "lng": -3.67947
+                    },
+                    "additionalInfo": {
+                        "transitType": "Bus",
+                        "line": "51",
+                        "numStops": 18
+                    }
+                },
+                {
+                    "transitMode": "WALKING",
+                    "distance": 621,
+                    "time": 457,
+                    "wayPoint": {
+                        "lat": 40.4488206,
+                        "lng": -3.6728045
+                    },
+                    "additionalInfo": {
+                        "transitType": "",
+                        "line": "",
+                        "numStops": ""
+                    }
+                }
+            ],
+            "totalDistance": 5957,
+            "totalTime": 3423,
+            "totalCalories": 0,
+            "co2": 0,
+            "cost": 1.5
+        }
+    ],
+    "subway": [
+        {
+            "wayPoints": [
+                {
+                    "transitMode": "WALKING",
+                    "distance": 57,
+                    "time": 57,
+                    "wayPoint": {
+                        "lat": 40.41685,
+                        "lng": -3.70326
+                    },
+                    "additionalInfo": {
+                        "transitType": "",
+                        "line": "",
+                        "numStops": ""
+                    }
+                },
+                {
+                    "transitMode": "TRANSIT",
+                    "distance": 2164,
+                    "time": 309,
+                    "wayPoint": {
+                        "lat": 40.4230733,
+                        "lng": -3.6797763
+                    },
+                    "additionalInfo": {
+                        "transitType": "Subway",
+                        "line": "2",
+                        "numStops": 4
+                    }
+                },
+                {
+                    "transitMode": "WALKING",
+                    "distance": 0,
+                    "time": 0,
+                    "wayPoint": {
+                        "lat": 40.4230733,
+                        "lng": -3.6797763
+                    },
+                    "additionalInfo": {
+                        "transitType": "",
+                        "line": "",
+                        "numStops": ""
+                    }
+                },
+                {
+                    "transitMode": "TRANSIT",
+                    "distance": 3322,
+                    "time": 401,
+                    "wayPoint": {
+                        "lat": 40.4507673,
+                        "lng": -3.6776141
+                    },
+                    "additionalInfo": {
+                        "transitType": "Subway",
+                        "line": "9",
+                        "numStops": 4
+                    }
+                },
+                {
+                    "transitMode": "WALKING",
+                    "distance": 639,
+                    "time": 483,
+                    "wayPoint": {
+                        "lat": 40.44884,
+                        "lng": -3.6730823
+                    },
+                    "additionalInfo": {
+                        "transitType": "",
+                        "line": "",
+                        "numStops": ""
+                    }
+                }
+            ],
+            "totalDistance": 6182,
+            "totalTime": 1943,
+            "totalCalories": 0,
+            "co2": 0,
+            "cost": 1.5
+        }
+    ],
+    "vtc": [
+        {
+            "cabify": [ {
+                    "wayPoints": [],
+                    "totalDistance": 5627,
+                    "totalTime": 1305,
+                    "totalCalories": 0,
+                    "co2": 526.6872,
+                    "cost": 5.77025
+                }],
+            "uber": [{
+                    "wayPoints": [],
+                    "totalDistance": 5627,
+                    "totalTime": 1365,
+                    "totalCalories": 0,
+                    "co2": 526.6872,
+                    "cost": 4.9262
+                }]
+        }
+    ],
+    "taxi": [
+        {
+            "wayPoints": [],
+            "totalDistance": 5627,
+            "totalTime": 1425,
+            "totalCalories": 0,
+            "co2": 658.3589999999999,
+            "cost": 7.9483500000000005
+        }
+    ],
     "moto": [
         {
             "movo": [
@@ -193,88 +231,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 21,
-                            "time": 17,
+                            "distance": 33,
+                            "time": 27,
                             "wayPoint": {
-                                "lat": 40.3822755,
-                                "lng": -3.7034045
+                                "lat": 40.4166693,
+                                "lng": -3.7035765
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 4866,
-                            "time": 1134,
+                            "distance": 5611,
+                            "time": 1119,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "7783QNK",
-                                "batery": 100
-                            }
-                        }
-                    ],
-                    "totalDistance": 4887,
-                    "totalTime": 1151,
-                    "totalCalories": 1.7000000000000002,
-                    "co2": 0,
-                    "cost": 3.024
-                },
-                {
-                    "wayPoints": [
-                        {
-                            "transitMode": "walking",
-                            "distance": 38,
-                            "time": 32,
-                            "wayPoint": {
-                                "lat": 40.3821904,
-                                "lng": -3.7035169
-                            },
-                            "additionalInfo": {}
-                        },
-                        {
-                            "transitMode": "moto",
-                            "distance": 4875,
-                            "time": 1138,
-                            "wayPoint": {},
-                            "additionalInfo": {
-                                "plate": "9049XVK",
-                                "batery": 99
-                            }
-                        }
-                    ],
-                    "totalDistance": 4913,
-                    "totalTime": 1170,
-                    "totalCalories": 3.2,
-                    "co2": 0,
-                    "cost": 3.0346666666666664
-                },
-                {
-                    "wayPoints": [
-                        {
-                            "transitMode": "walking",
-                            "distance": 186,
-                            "time": 147,
-                            "wayPoint": {
-                                "lat": 40.3815661,
-                                "lng": -3.7023919
-                            },
-                            "additionalInfo": {}
-                        },
-                        {
-                            "transitMode": "moto",
-                            "distance": 5109,
-                            "time": 1144,
-                            "wayPoint": {},
-                            "additionalInfo": {
-                                "plate": "4765SUT",
+                                "plate": "8883RIJ",
                                 "batery": 86
                             }
                         }
                     ],
-                    "totalDistance": 5295,
-                    "totalTime": 1291,
-                    "totalCalories": 14.700000000000001,
+                    "totalDistance": 5644,
+                    "totalTime": 1146,
+                    "totalCalories": 2.7,
                     "co2": 0,
-                    "cost": 3.050666666666667
+                    "cost": 2.984
+                },
+                {
+                    "wayPoints": [
+                        {
+                            "transitMode": "walking",
+                            "distance": 41,
+                            "time": 31,
+                            "wayPoint": {
+                                "lat": 40.4167678,
+                                "lng": -3.7032983
+                            },
+                            "additionalInfo": {}
+                        },
+                        {
+                            "transitMode": "moto",
+                            "distance": 5584,
+                            "time": 1099,
+                            "wayPoint": {},
+                            "additionalInfo": {
+                                "plate": "7350MIV",
+                                "batery": 70
+                            }
+                        }
+                    ],
+                    "totalDistance": 5625,
+                    "totalTime": 1130,
+                    "totalCalories": 3.1,
+                    "co2": 0,
+                    "cost": 2.9306666666666668
+                },
+                {
+                    "wayPoints": [
+                        {
+                            "transitMode": "walking",
+                            "distance": 12,
+                            "time": 10,
+                            "wayPoint": {
+                                "lat": 40.4166385,
+                                "lng": -3.7039135
+                            },
+                            "additionalInfo": {}
+                        },
+                        {
+                            "transitMode": "moto",
+                            "distance": 5633,
+                            "time": 1127,
+                            "wayPoint": {},
+                            "additionalInfo": {
+                                "plate": "2175TIG",
+                                "batery": 85
+                            }
+                        }
+                    ],
+                    "totalDistance": 5645,
+                    "totalTime": 1137,
+                    "totalCalories": 1,
+                    "co2": 0,
+                    "cost": 3.0053333333333336
                 }
             ],
             "ecooltra": [
@@ -282,88 +320,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 166,
-                            "time": 129,
+                            "distance": 86,
+                            "time": 64,
                             "wayPoint": {
-                                "lat": 40.3813424,
-                                "lng": -3.7037453
+                                "lat": 40.4172613,
+                                "lng": -3.7035636
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 5026,
-                            "time": 1141,
+                            "distance": 5594,
+                            "time": 1108,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "8357BVU",
-                                "batery": 81
+                                "plate": "2781CBL",
+                                "batery": 57
                             }
                         }
                     ],
-                    "totalDistance": 5192,
-                    "totalTime": 1270,
-                    "totalCalories": 12.9,
+                    "totalDistance": 5680,
+                    "totalTime": 1172,
+                    "totalCalories": 6.4,
                     "co2": 0,
-                    "cost": 4.944333333333334
+                    "cost": 4.801333333333333
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 200,
-                            "time": 137,
+                            "distance": 180,
+                            "time": 136,
                             "wayPoint": {
-                                "lat": 40.38314930000001,
-                                "lng": -3.7021497
+                                "lat": 40.4180109,
+                                "lng": -3.7043797
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 4780,
-                            "time": 1064,
+                            "distance": 5638,
+                            "time": 1113,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "4903NED",
-                                "batery": 58
+                                "plate": "8227HYR",
+                                "batery": 93
                             }
                         }
                     ],
-                    "totalDistance": 4980,
-                    "totalTime": 1201,
-                    "totalCalories": 13.700000000000001,
+                    "totalDistance": 5818,
+                    "totalTime": 1249,
+                    "totalCalories": 13.600000000000001,
                     "co2": 0,
-                    "cost": 4.610666666666667
+                    "cost": 4.823
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 207,
-                            "time": 161,
+                            "distance": 156,
+                            "time": 127,
                             "wayPoint": {
-                                "lat": 40.3823935,
-                                "lng": -3.7050771
+                                "lat": 40.4175736,
+                                "lng": -3.7028626
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 5006,
-                            "time": 1116,
+                            "distance": 5719,
+                            "time": 1148,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "3061CUP",
-                                "batery": 55
+                                "plate": "1774VDQ",
+                                "batery": 63
                             }
                         }
                     ],
-                    "totalDistance": 5213,
-                    "totalTime": 1277,
-                    "totalCalories": 16.1,
+                    "totalDistance": 5875,
+                    "totalTime": 1275,
+                    "totalCalories": 12.700000000000001,
                     "co2": 0,
-                    "cost": 4.836
+                    "cost": 4.974666666666667
                 }
             ],
             "acciona": [
@@ -371,88 +409,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 169,
-                            "time": 132,
+                            "distance": 150,
+                            "time": 112,
                             "wayPoint": {
-                                "lat": 40.3814064,
-                                "lng": -3.7027689
+                                "lat": 40.4162286,
+                                "lng": -3.7052818
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 5077,
-                            "time": 1136,
+                            "distance": 5768,
+                            "time": 1195,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "4816INB",
-                                "batery": 68
+                                "plate": "3273BEX",
+                                "batery": 61
                             }
                         }
                     ],
-                    "totalDistance": 5246,
-                    "totalTime": 1268,
-                    "totalCalories": 13.200000000000001,
+                    "totalDistance": 5918,
+                    "totalTime": 1307,
+                    "totalCalories": 11.200000000000001,
                     "co2": 0,
-                    "cost": 3.976
+                    "cost": 4.1825
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 159,
-                            "time": 119,
+                            "distance": 101,
+                            "time": 80,
                             "wayPoint": {
-                                "lat": 40.3823737,
-                                "lng": -3.7017564
+                                "lat": 40.4171121,
+                                "lng": -3.70309
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 4943,
-                            "time": 1106,
+                            "distance": 5568,
+                            "time": 1088,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "6765GUQ",
-                                "batery": 81
+                                "plate": "3787PSL",
+                                "batery": 52
                             }
                         }
                     ],
-                    "totalDistance": 5102,
-                    "totalTime": 1225,
-                    "totalCalories": 11.9,
+                    "totalDistance": 5669,
+                    "totalTime": 1168,
+                    "totalCalories": 8,
                     "co2": 0,
-                    "cost": 3.871
+                    "cost": 3.808
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 208,
-                            "time": 164,
+                            "distance": 113,
+                            "time": 84,
                             "wayPoint": {
-                                "lat": 40.3829201,
-                                "lng": -3.7050772
+                                "lat": 40.4175129,
+                                "lng": -3.7043155
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "moto",
-                            "distance": 4956,
-                            "time": 1127,
+                            "distance": 6200,
+                            "time": 1378,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "6277MTO",
-                                "batery": 55
+                                "plate": "2954NJH",
+                                "batery": 52
                             }
                         }
                     ],
-                    "totalDistance": 5164,
-                    "totalTime": 1291,
-                    "totalCalories": 16.400000000000002,
+                    "totalDistance": 6313,
+                    "totalTime": 1462,
+                    "totalCalories": 8.4,
                     "co2": 0,
-                    "cost": 3.9445
+                    "cost": 4.8229999999999995
                 }
             ]
         }
@@ -464,88 +502,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 53,
-                            "time": 40,
+                            "distance": 164,
+                            "time": 131,
                             "wayPoint": {
-                                "lat": 40.3825159,
-                                "lng": -3.7033498
+                                "lat": 40.4178931,
+                                "lng": -3.7033734
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 4890,
-                            "time": 1149,
+                            "distance": 5719,
+                            "time": 1148,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#QB5533",
-                                "batery": 68
+                                "plate": "M#QN2956",
+                                "batery": 51
                             }
                         }
                     ],
-                    "totalDistance": 4943,
-                    "totalTime": 1189,
-                    "totalCalories": 4,
+                    "totalDistance": 5883,
+                    "totalTime": 1279,
+                    "totalCalories": 13.100000000000001,
                     "co2": 0,
-                    "cost": 3.064
+                    "cost": 3.0613333333333332
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 85,
-                            "time": 70,
+                            "distance": 189,
+                            "time": 148,
                             "wayPoint": {
-                                "lat": 40.38169329999999,
-                                "lng": -3.703218199999999
+                                "lat": 40.4157179,
+                                "lng": -3.7039126
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 5101,
-                            "time": 1139,
+                            "distance": 5640,
+                            "time": 1130,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#VJ8086",
-                                "batery": 53
+                                "plate": "M#IR2506",
+                                "batery": 60
                             }
                         }
                     ],
-                    "totalDistance": 5186,
-                    "totalTime": 1209,
-                    "totalCalories": 7,
+                    "totalDistance": 5829,
+                    "totalTime": 1278,
+                    "totalCalories": 14.8,
                     "co2": 0,
-                    "cost": 3.0373333333333337
+                    "cost": 3.013333333333333
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 162,
-                            "time": 113,
+                            "distance": 109,
+                            "time": 85,
                             "wayPoint": {
-                                "lat": 40.3829091,
-                                "lng": -3.7025082
+                                "lat": 40.4161207,
+                                "lng": -3.7032815
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 5262,
-                            "time": 1191,
+                            "distance": 5586,
+                            "time": 1100,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#JK7911",
-                                "batery": 63
+                                "plate": "M#EM9757",
+                                "batery": 50
                             }
                         }
                     ],
-                    "totalDistance": 5424,
-                    "totalTime": 1304,
-                    "totalCalories": 11.3,
+                    "totalDistance": 5695,
+                    "totalTime": 1185,
+                    "totalCalories": 8.5,
                     "co2": 0,
-                    "cost": 3.176
+                    "cost": 2.933333333333333
                 }
             ],
             "lime": [
@@ -553,88 +591,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 159,
-                            "time": 115,
+                            "distance": 167,
+                            "time": 130,
                             "wayPoint": {
-                                "lat": 40.3833782,
-                                "lng": -3.7040818
+                                "lat": 40.4171258,
+                                "lng": -3.7024256
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 4798,
-                            "time": 1079,
+                            "distance": 5551,
+                            "time": 1099,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#SK1188",
-                                "batery": 53
+                                "plate": "M#BP7977",
+                                "batery": 74
                             }
                         }
                     ],
-                    "totalDistance": 4957,
-                    "totalTime": 1194,
-                    "totalCalories": 11.5,
+                    "totalDistance": 5718,
+                    "totalTime": 1229,
+                    "totalCalories": 13,
                     "co2": 0,
-                    "cost": 2.8773333333333335
+                    "cost": 2.9306666666666668
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 147,
-                            "time": 106,
+                            "distance": 124,
+                            "time": 99,
                             "wayPoint": {
-                                "lat": 40.3832731,
-                                "lng": -3.7040649
+                                "lat": 40.4173035,
+                                "lng": -3.7030058
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 4810,
-                            "time": 1083,
+                            "distance": 5568,
+                            "time": 1088,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#SV8650",
-                                "batery": 90
+                                "plate": "M#FM1930",
+                                "batery": 98
                             }
                         }
                     ],
-                    "totalDistance": 4957,
-                    "totalTime": 1189,
-                    "totalCalories": 10.600000000000001,
+                    "totalDistance": 5692,
+                    "totalTime": 1187,
+                    "totalCalories": 9.9,
                     "co2": 0,
-                    "cost": 2.8880000000000003
+                    "cost": 2.901333333333333
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 69,
-                            "time": 55,
+                            "distance": 166,
+                            "time": 136,
                             "wayPoint": {
-                                "lat": 40.3822762,
-                                "lng": -3.702803
+                                "lat": 40.4176609,
+                                "lng": -3.7028162
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 5225,
-                            "time": 1183,
+                            "distance": 5632,
+                            "time": 1155,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#CV9188",
-                                "batery": 93
+                                "plate": "M#FL3354",
+                                "batery": 77
                             }
                         }
                     ],
-                    "totalDistance": 5294,
-                    "totalTime": 1238,
-                    "totalCalories": 5.5,
+                    "totalDistance": 5798,
+                    "totalTime": 1291,
+                    "totalCalories": 13.600000000000001,
                     "co2": 0,
-                    "cost": 3.1546666666666665
+                    "cost": 3.08
                 }
             ],
             "jump": [
@@ -642,88 +680,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 166,
-                            "time": 115,
+                            "distance": 137,
+                            "time": 97,
                             "wayPoint": {
-                                "lat": 40.3829387,
-                                "lng": -3.7025076
+                                "lat": 40.4165099,
+                                "lng": -3.7053819
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 5265,
-                            "time": 1192,
+                            "distance": 5765,
+                            "time": 1194,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#XS5656",
-                                "batery": 97
+                                "plate": "M#GM5095",
+                                "batery": 95
                             }
                         }
                     ],
-                    "totalDistance": 5431,
-                    "totalTime": 1307,
-                    "totalCalories": 11.5,
+                    "totalDistance": 5902,
+                    "totalTime": 1291,
+                    "totalCalories": 9.700000000000001,
                     "co2": 0,
-                    "cost": 3.178666666666667
+                    "cost": 3.1839999999999997
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 150,
-                            "time": 119,
+                            "distance": 185,
+                            "time": 145,
                             "wayPoint": {
-                                "lat": 40.3812454,
-                                "lng": -3.7034538
+                                "lat": 40.4157485,
+                                "lng": -3.7038942
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 5064,
-                            "time": 1156,
+                            "distance": 5640,
+                            "time": 1130,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#JO4245",
-                                "batery": 98
+                                "plate": "M#GI3431",
+                                "batery": 50
                             }
                         }
                     ],
-                    "totalDistance": 5214,
+                    "totalDistance": 5825,
                     "totalTime": 1275,
-                    "totalCalories": 11.9,
+                    "totalCalories": 14.5,
                     "co2": 0,
-                    "cost": 3.0826666666666664
+                    "cost": 3.013333333333333
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 124,
-                            "time": 96,
+                            "distance": 170,
+                            "time": 114,
                             "wayPoint": {
-                                "lat": 40.3817226,
-                                "lng": -3.7038071
+                                "lat": 40.4169964,
+                                "lng": -3.705517
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "scooter",
-                            "distance": 4984,
-                            "time": 1131,
+                            "distance": 6172,
+                            "time": 1365,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "M#NG6816",
-                                "batery": 68
+                                "plate": "M#NA6468",
+                                "batery": 83
                             }
                         }
                     ],
-                    "totalDistance": 5108,
-                    "totalTime": 1227,
-                    "totalCalories": 9.600000000000001,
+                    "totalDistance": 6342,
+                    "totalTime": 1479,
+                    "totalCalories": 11.4,
                     "co2": 0,
-                    "cost": 3.0160000000000005
+                    "cost": 3.64
                 }
             ]
         }
@@ -735,88 +773,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 4,
-                            "time": 3,
+                            "distance": 158,
+                            "time": 126,
                             "wayPoint": {
-                                "lat": 40.382411,
-                                "lng": -3.7034273
+                                "lat": 40.4156776,
+                                "lng": -3.7031746
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 4879,
-                            "time": 1146,
+                            "distance": 5605,
+                            "time": 1123,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "4002KIR",
-                                "batery": 70
+                                "plate": "3470NMI",
+                                "batery": 57
                             }
                         }
                     ],
-                    "totalDistance": 4883,
-                    "totalTime": 1149,
-                    "totalCalories": 0.30000000000000004,
+                    "totalDistance": 5763,
+                    "totalTime": 1249,
+                    "totalCalories": 12.600000000000001,
                     "co2": 0,
-                    "cost": 4.775
+                    "cost": 4.679166666666666
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 167,
-                            "time": 116,
+                            "distance": 133,
+                            "time": 105,
                             "wayPoint": {
-                                "lat": 40.3830945,
-                                "lng": -3.7024097
+                                "lat": 40.4170976,
+                                "lng": -3.7028013
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 5282,
-                            "time": 1196,
+                            "distance": 5537,
+                            "time": 1094,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "3550QYY",
-                                "batery": 61
+                                "plate": "6274PAT",
+                                "batery": 52
                             }
                         }
                     ],
-                    "totalDistance": 5449,
-                    "totalTime": 1312,
-                    "totalCalories": 11.600000000000001,
+                    "totalDistance": 5670,
+                    "totalTime": 1199,
+                    "totalCalories": 10.5,
                     "co2": 0,
-                    "cost": 4.983333333333333
+                    "cost": 4.558333333333334
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 164,
-                            "time": 128,
+                            "distance": 132,
+                            "time": 99,
                             "wayPoint": {
-                                "lat": 40.3817108,
-                                "lng": -3.7043273
+                                "lat": 40.4176699,
+                                "lng": -3.7044179
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 5291,
-                            "time": 1181,
+                            "distance": 6200,
+                            "time": 1378,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "7074BBL",
-                                "batery": 83
+                                "plate": "6507QUE",
+                                "batery": 78
                             }
                         }
                     ],
-                    "totalDistance": 5455,
-                    "totalTime": 1309,
-                    "totalCalories": 12.8,
+                    "totalDistance": 6332,
+                    "totalTime": 1477,
+                    "totalCalories": 9.9,
                     "co2": 0,
-                    "cost": 4.920833333333333
+                    "cost": 5.741666666666666
                 }
             ],
             "zity": [
@@ -824,88 +862,88 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 160,
-                            "time": 110,
+                            "distance": 158,
+                            "time": 122,
                             "wayPoint": {
-                                "lat": 40.38319509999999,
-                                "lng": -3.7025028
+                                "lat": 40.4159679,
+                                "lng": -3.7037554
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 4786,
-                            "time": 1091,
+                            "distance": 5633,
+                            "time": 1127,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "4229SCI",
-                                "batery": 97
-                            }
-                        }
-                    ],
-                    "totalDistance": 4946,
-                    "totalTime": 1201,
-                    "totalCalories": 11,
-                    "co2": 0,
-                    "cost": 4.727666666666667
-                },
-                {
-                    "wayPoints": [
-                        {
-                            "transitMode": "walking",
-                            "distance": 150,
-                            "time": 104,
-                            "wayPoint": {
-                                "lat": 40.3833956,
-                                "lng": -3.7030526
-                            },
-                            "additionalInfo": {}
-                        },
-                        {
-                            "transitMode": "driving",
-                            "distance": 4702,
-                            "time": 1041,
-                            "wayPoint": {},
-                            "additionalInfo": {
-                                "plate": "7752EIR",
+                                "plate": "4135PHW",
                                 "batery": 59
                             }
                         }
                     ],
-                    "totalDistance": 4852,
-                    "totalTime": 1145,
-                    "totalCalories": 10.4,
+                    "totalDistance": 5791,
+                    "totalTime": 1249,
+                    "totalCalories": 12.200000000000001,
                     "co2": 0,
-                    "cost": 4.511
+                    "cost": 4.8836666666666675
                 },
                 {
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 198,
-                            "time": 136,
+                            "distance": 161,
+                            "time": 132,
                             "wayPoint": {
-                                "lat": 40.383153,
-                                "lng": -3.7021707
+                                "lat": 40.4164051,
+                                "lng": -3.7022474
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 4779,
-                            "time": 1064,
+                            "distance": 5536,
+                            "time": 1086,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "5083CSL",
-                                "batery": 66
+                                "plate": "8715IDY",
+                                "batery": 79
                             }
                         }
                     ],
-                    "totalDistance": 4977,
-                    "totalTime": 1200,
-                    "totalCalories": 13.600000000000001,
+                    "totalDistance": 5697,
+                    "totalTime": 1218,
+                    "totalCalories": 13.200000000000001,
                     "co2": 0,
-                    "cost": 4.610666666666667
+                    "cost": 4.706
+                },
+                {
+                    "wayPoints": [
+                        {
+                            "transitMode": "walking",
+                            "distance": 174,
+                            "time": 137,
+                            "wayPoint": {
+                                "lat": 40.4158157,
+                                "lng": -3.7028456
+                            },
+                            "additionalInfo": {}
+                        },
+                        {
+                            "transitMode": "driving",
+                            "distance": 5589,
+                            "time": 1117,
+                            "wayPoint": {},
+                            "additionalInfo": {
+                                "plate": "9368JFS",
+                                "batery": 93
+                            }
+                        }
+                    ],
+                    "totalDistance": 5763,
+                    "totalTime": 1254,
+                    "totalCalories": 13.700000000000001,
+                    "co2": 0,
+                    "cost": 4.840333333333334
                 }
             ],
             "wible": [
@@ -913,28 +951,28 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 5,
-                            "time": 4,
+                            "distance": 132,
+                            "time": 104,
                             "wayPoint": {
-                                "lat": 40.3823983,
-                                "lng": -3.7034252
+                                "lat": 40.4159167,
+                                "lng": -3.7031782
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 4880,
-                            "time": 1139,
+                            "distance": 5593,
+                            "time": 1118,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "9255LVP",
-                                "batery": 66
+                                "plate": "7946AYD",
+                                "batery": 94
                             }
                         }
                     ],
-                    "totalDistance": 4885,
-                    "totalTime": 1143,
-                    "totalCalories": 0.4,
+                    "totalDistance": 5725,
+                    "totalTime": 1222,
+                    "totalCalories": 10.4,
                     "co2": 0,
                     "cost": null
                 },
@@ -942,57 +980,57 @@
                     "wayPoints": [
                         {
                             "transitMode": "walking",
-                            "distance": 49,
-                            "time": 30,
+                            "distance": 86,
+                            "time": 67,
                             "wayPoint": {
-                                "lat": 40.3828781,
-                                "lng": -3.7035037
+                                "lat": 40.4162325,
+                                "lng": -3.7042165
                             },
                             "additionalInfo": {}
                         },
                         {
                             "transitMode": "driving",
-                            "distance": 4931,
-                            "time": 1158,
+                            "distance": 5669,
+                            "time": 1148,
                             "wayPoint": {},
                             "additionalInfo": {
-                                "plate": "7404REN",
-                                "batery": 68
-                            }
-                        }
-                    ],
-                    "totalDistance": 4980,
-                    "totalTime": 1188,
-                    "totalCalories": 3,
-                    "co2": 0,
-                    "cost": null
-                },
-                {
-                    "wayPoints": [
-                        {
-                            "transitMode": "walking",
-                            "distance": 227,
-                            "time": 176,
-                            "wayPoint": {
-                                "lat": 40.3825679,
-                                "lng": -3.7051087
-                            },
-                            "additionalInfo": {}
-                        },
-                        {
-                            "transitMode": "driving",
-                            "distance": 4986,
-                            "time": 1111,
-                            "wayPoint": {},
-                            "additionalInfo": {
-                                "plate": "3110ODU",
+                                "plate": "6800SHP",
                                 "batery": 69
                             }
                         }
                     ],
-                    "totalDistance": 5213,
-                    "totalTime": 1287,
-                    "totalCalories": 17.6,
+                    "totalDistance": 5755,
+                    "totalTime": 1215,
+                    "totalCalories": 6.7,
+                    "co2": 0,
+                    "cost": null
+                },
+                {
+                    "wayPoints": [
+                        {
+                            "transitMode": "walking",
+                            "distance": 44,
+                            "time": 33,
+                            "wayPoint": {
+                                "lat": 40.4168868,
+                                "lng": -3.703507799999999
+                            },
+                            "additionalInfo": {}
+                        },
+                        {
+                            "transitMode": "driving",
+                            "distance": 5586,
+                            "time": 1100,
+                            "wayPoint": {},
+                            "additionalInfo": {
+                                "plate": "6471DJW",
+                                "batery": 60
+                            }
+                        }
+                    ],
+                    "totalDistance": 5630,
+                    "totalTime": 1133,
+                    "totalCalories": 3.3000000000000003,
                     "co2": 0,
                     "cost": null
                 }

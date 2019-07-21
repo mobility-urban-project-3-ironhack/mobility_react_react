@@ -1,24 +1,22 @@
 import React from 'react';
 import { MDBContainer } from 'mdbreact';
-import MapComponent from './MapComponent';
-import data from '../../dat.json'
-import CardExample from '../misc/JourneyCard';
 import { SearchContext } from '../../contexts/SearchStore';
 import MapSearchComponent from './MapSearchComponent';
 import Results from './Results';
+import IcoType from './ListType';
 
 const googleMapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_MAP_KEY}`
 
 class Search extends React.Component {
 
-  state = {
-  }
-
-
   render() {
+    let marginPadding = '';
+
+    (!this.props.request) ? marginPadding ="text-center mt-4 pt-5 px-3"  : marginPadding ="text-center mt-2 pt-2 px-0"
 
     return (
-      <MDBContainer className="text-center mt-3 pt-5 px-0">
+      <MDBContainer 
+      className={marginPadding}>
         {!this.props.request && (
           <MapSearchComponent
             googleMapURL={googleMapURL}
@@ -26,11 +24,16 @@ class Search extends React.Component {
             containerElement={<div/>}
             mapElement={<div />} />
         )}
-        
-        {this.props.request && this.props.results && (
-          <p>request: {JSON.stringify(this.props.results)}</p>
+
+        {this.props.request && !this.props.results && (
+         <div className="spinner-border text-primary"  style={{width: '3rem', height: '3rem'}} role="status">
+         <span className="sr-only">Loading...</span>
+       </div>
         )}
 
+        {this.props.request && this.props.results && (
+          <Results search={this.props.results}/>
+        )}
       </MDBContainer>
     )
   }

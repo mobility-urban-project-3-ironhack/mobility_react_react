@@ -1,7 +1,7 @@
 
 const recomendationJourney = (results) => {
-  console.log(results.driving[0])
-  return results.driving[0]
+  console.log(results.bicycling[0])
+  return results.bicycling[0]
 }
 
 export default recomendationJourney

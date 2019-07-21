@@ -7,14 +7,13 @@ import Login from './Login';
 import Search from './journey/Search';
 import Footer from './misc/Footer';
 import PrivateRoute from '../guards/PrivateRoute';
-import Historical from './user/Historical';
-import { MDBContainer } from 'mdbreact';
+import Historical from './user/Historical'; 
 
 
 
 function App() {
   return (
-    <MDBContainer fluid  color='primary-color' className="App">
+    <div  color='primary-color ' className="App">
       <HeaderNav/>
       <Switch>
         <Route exact path='/' component={Home}/>
@@ -22,8 +21,8 @@ function App() {
         <PrivateRoute exact path='/historical' component={Historical}/>
         <Route exact path='/login' component={Login}/>
       </Switch>
-      <Footer/>
-    </MDBContainer>
+{/*       <Footer/>
+ */}    </div>
   );
 }
 

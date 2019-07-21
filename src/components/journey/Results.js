@@ -1,35 +1,35 @@
 import React from 'react';
 import { MDBContainer } from 'mdbreact';
 import MapComponent from './MapComponent';
-import data from '../../dat.json'
 import CardExample from '../misc/JourneyCard';
+import ListType from './ListType'
 import { SearchContext } from '../../contexts/SearchStore';
-import Recomendation from '../../services/RecomendationService'
+import recomendationJourney from '../../services/RecomendationService'
 
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
 class Results extends React.Component {
 
   state = {
-    origin2: {},
-    waypoints: []
+    waypoints: [],
+    directions: [],
+    minimize: false,
+    sizeIco: '128x128',
   }
-  
 
-  // componentWillMount (){
-  //   navigator.geolocation.getCurrentPosition(pos => {
-  //     this.setState({
-  //       origin2: this.state.origin,
-  //       destination2: {
-  //         lat: pos.coords.latitude+0.01,
-  //         lng: pos.coords.longitude+0.2
-  //       }
-  //     })
-  //   })
-  // }
-
-  componentDidMount() {   
+  onMinIco () {
     this.setState({
+      minimize: true,
+      sizeIco: '32x32',
+      class: 'prueba'
+    })
+  }
+
+  componentDidMount() {     
+    let arrWayPoint = recomendationJourney(this.props.search).wayPoints
+    this.setState({
+      waypoints: this.props.results.bicycling[0].wayPoints,
+      dataRecomendation: this.props.results.driving,
       origin: {
         lat: this.props.request.origin.coords.lat,
         lng: this.props.request.origin.coords.lng,
@@ -37,91 +37,68 @@ class Results extends React.Component {
       destination: {
         lat: this.props.request.destination.coords.lat,
         lng: this.props.request.destination.coords.lng,
-      }
-    })
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    
-    if (prevProps.results !== this.props.results) {
-      /* Recomendation.recomendationJourney(this.props.results)
-      this.setState({
-        dataMap: Recomendation.recomendationJourney(this.props.results)
-      }) */
-      
-      this.setState({
-        waypoints: this.props.results.driving[0].wayPoints,
-        dataRecomendation: this.props.results.driving,
-        }) 
-      this.afterMapMount()
-    }
+      },
+      route: [{...this.props.request.origin.coords, transitMode: 'none'}, ...arrWayPoint.map(waypoint => {
+        return {
+        transitMode: waypoint.transitMode,
+        lat: waypoint.wayPoint.lat,
+        lng: waypoint.wayPoint.lng
+        } }), {...this.props.request.destination.coords, transitMode: 'none'}],
+      }, ()=> {
+        this.props.handleDataMapChange(this.state.route)
+        this.afterMapMount() 
+      }) 
   }
 
   afterMapMount() {
-    const DirectionsService = new window.google.maps.DirectionsService();
-    //const DirectionsService2 = new window.google.maps.DirectionsService();
-
-    const {origin, destination, destination2, origin2 } = this.state
-
-    DirectionsService.route({
-      origin: new window.google.maps.LatLng(origin.lat, origin.lng),
-      destination: new window.google.maps.LatLng(destination.lat, destination.lng),
-      waypoints: [/* {
-        location: new window.google.maps.LatLng(destination2.lat-0.1, destination2.lng-0.1),
-        stopover: true
-        } */], 
-      travelMode: window.google.maps.TravelMode.DRIVING, 
-    }, (result, status) => {
-      if (status === window.google.maps.DirectionsStatus.OK) {
-        this.setState({
-          directions: result,
-        });
-      } else {
-        console.error(`error fetching directions ${result}`);
-      }
-    })
-
-    // DirectionsService2.route({
-    //   origin: new window.google.maps.LatLng(destination2.lat, destination2.lng),
-    //   destination: new window.google.maps.LatLng(origin2.lat+0.5, origin2.lng+0.02),
-    //   waypoints: [], 
-    //   travelMode: window.google.maps.TravelMode.DRIVING, 
-    // }, (result, status) => {
-    //   if (status === window.google.maps.DirectionsStatus.OK) {
-    //     this.setState({
-    //       directions2: result,
-    //     });
-    //   } else {
-    //     console.error(`error fetching directions en 2 ${result}`);
-    //   }
-    // })
-
-
+    const { route } = this.state
+    
+    for (let i = 0; i <= route.length - 2; i++) {
+      const direction = new window.google.maps.DirectionsService()
+      direction.route({
+        origin: new window.google.maps.LatLng(route[i].lat, route[i].lng),
+        destination: new window.google.maps.LatLng(route[i + 1].lat, route[i + 1].lng),
+        waypoints: [],
+        travelMode: route[i + 1].transitMode.toUpperCase(),
+      }, (result, status) => {
+        if (status === window.google.maps.DirectionsStatus.OK) {
+          this.setState({
+            directions: [...this.state.directions, result],
+          });
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      })
+    }
   }
 
   render() {
-
     return (    
-    <MDBContainer className="text-center mt-3 pt-5 px-0">
-
-      {(this.props.results) && this.state.dataRecomendation &&
+    <MDBContainer fluid className="text-center px-1">
       <MapComponent 
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px`, width:`100%` }} />}
+        containerElement={<div style={{ height: `500px`, width:`100%` }} />}
         mapElement={<div style={{ height: `100%`, width:`100%` }} />}
         defaultZoom={15}
-        userLocation={this.state.origin2}
-      //  isMarkerShown={this.state.isMarkerShown}
-        directions={this.state.directions}
-        directions2={this.state.directions2}
+        arrDirections={this.state.directions}
         afterMapMount={this.afterMapMount}
-      />  }
+      />  
       <hr/>
-      {this.state.dataRecomendation && (<div>{<CardExample type='driving' data={this.state.dataRecomendation} isFavorite={true}/>}<hr/></div>)}
+      {this.state.dataRecomendation && (<div>{
+      <CardExample 
+        type='driving' 
+        data={this.state.dataRecomendation} 
+        isFavorite={true}
+      />}<hr/></div>)}
+      <ListType search={this.props.search}/>
       
-      
-      {Object.keys(data).map((type, i) => (<CardExample type={type} data={ data[type]} key={i} />))}
+     {/*  {Object.keys(this.props.results).map((type, i) => (
+        <CardExample 
+          type={type} 
+          data={ this.props.results[type]} 
+          key={i}
+        />))} */}
    </MDBContainer>
   )}
 }

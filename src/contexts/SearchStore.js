@@ -19,9 +19,10 @@ class SearchStore extends React.Component {
     }, ()=>{console.log('request guardado: ' + this.state.request)})
   }
 
-  onResultsChange = (results) => {
-    console.log('mandado data')
-    this.setState({ results }, ()=> console.log(this.state.results))
+  onResultsChange = results => this.setState({ results })
+  
+  onDataMapChange = dataMap => {
+    this.setState({dataMap})
   }
 
   render() {
@@ -30,7 +31,9 @@ class SearchStore extends React.Component {
         request: this.state.request,
         results: this.state.results,
         handleRequestChange: this.onRequestChange,
-        handleResultsChange: this.onResultsChange
+        handleResultsChange: this.onResultsChange,
+        handleDataMapChange: this.onDataMapChange,
+        dataMap: this.state.dataMap
       }}>
         {this.props.children}
       </SearchContext.Provider>

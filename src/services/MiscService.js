@@ -19,4 +19,22 @@ const callBackArrObj = (arr, element) => {
   return elementArray.sort((a,b)=>a-b)
 }
 
-export { callBackArrObj }
+
+const parseMinutes = time => parseInt(time/60/60)
+
+const parseCoKgm = kgm => parseInt(kgm/1000)
+
+const parseCalories = calories => parseInt(calories/1000)
+
+const parseDistance = distance => (distance/1000).toFixed(2)
+
+const parsePrice = price => parseFloat(price).toFixed(2)
+
+export { 
+  callBackArrObj,
+  parseMinutes,
+  parseCoKgm,
+  parseCalories,
+  parseDistance,
+  parsePrice
+}

@@ -92,7 +92,7 @@ class Login extends React.Component {
     const hasErrors = Object.values(errors).some(el => el === true)
 
     if (this.state.goToHome) {
-      return <Redirect to="/" />
+      return <Redirect to="/search" />
     }
     
     return (

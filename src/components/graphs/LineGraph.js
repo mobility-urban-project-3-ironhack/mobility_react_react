@@ -15,11 +15,8 @@ const options = {
   responsive:true,
   scales: {
     xAxes: [{
-      time: {
-        unit: 'month'
-      },
       ticks: {
-        maxTicksLimit: 12,
+        maxTicksLimit: 6,
         display: true
       },
       gridLines: {
@@ -36,9 +33,10 @@ const options = {
   },
 }
 
-class LineGraph extends Component {
-  state = {
-    data: {
+const LineGraph = ({inputs}) =>  {
+  console.log(inputs)
+
+   const graphData = {
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
       datasets: [
         {
@@ -60,7 +58,7 @@ class LineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [65, 59, 80, 81, 56, 55, 40,45,60,70,36,40],
+          data: inputs.user,
         },
         {
           label: 'MU People',
@@ -81,12 +79,12 @@ class LineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [40, 50,65,34,56,40,31,24,46,56,30,45],
+          data: inputs.total,
         }
       ]
     }
-  }
-  render() {
+
+
     return (
       <MDBContainer className='mt-3'>
         <h5 className='mb-3'>Line Example</h5>
@@ -101,10 +99,10 @@ class LineGraph extends Component {
             onClick={() => {}}> Last Years
           </button>
         </div>
-        <Line data={this.state.data} legend={legend} options={options} />
+        <Line data={graphData} legend={legend} options={options} />
       </MDBContainer>
     );
-  }
+
 };
 
 export default LineGraph

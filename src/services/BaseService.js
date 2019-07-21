@@ -5,7 +5,7 @@ import axios from 'axios';
 //    return `http://${url[2].substr(0, url[2].length-1)}1`
 // }
 
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL || 'http://192.168.20.232:3001'
+const REACT_APP_API_URL = 'http://localhost:3001'
 
 const http = axios.create({
   baseURL: REACT_APP_API_URL,

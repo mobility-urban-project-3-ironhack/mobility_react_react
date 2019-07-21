@@ -2,44 +2,13 @@ import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 
-const legend = {
-  display: true,
-  position: 'bottom',
-  labels : {
-    boxWidth: 10,
-  },
-  reverse: true
-}
 
-const options = {
-  responsive:true,
-  scales: {
-    xAxes: [{
-      time: {
-        unit: 'month'
-      },
-      ticks: {
-        maxTicksLimit: 12,
-        display: true
-      },
-      gridLines: {
-        display: false,
-        drawBorder: false,           
-        lineWidth: 2,
-        color: 'dark-gray'
-      },
-      display: true
-    }],
-    yAxes: [{
-      display: false,
-    }],
-  },
-}
 
-class LineGraph extends Component {
-  state = {
-    data: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
+const LineGraph = ({inputs,title,labelData,timeChange,displayAxe}) =>  {
+  console.log(displayAxe)
+
+   const graphData = {
+      labels: labelData,
       datasets: [
         {
           label: 'Me',
@@ -60,7 +29,7 @@ class LineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [65, 59, 80, 81, 56, 55, 40,45,60,70,36,40],
+          data: inputs.user,
         },
         {
           label: 'MU People',
@@ -81,30 +50,63 @@ class LineGraph extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [40, 50,65,34,56,40,31,24,46,56,30,45],
+          data: inputs.total,
         }
       ]
     }
-  }
-  render() {
+
+    const legend = {
+      display: true,
+      position: 'bottom',
+      labels : {
+        boxWidth: 10,
+      },
+      reverse: true
+    }
+    
+    const options = {
+      responsive:true,
+      scales: {
+        xAxes: [{
+          ticks: {
+            maxTicksLimit: 6,
+            display: true
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false,           
+            lineWidth: 2,
+            color: 'dark-gray'
+          },
+          display: displayAxe
+        }],
+        yAxes: [{
+          display: false,
+        }],
+      },
+    }
+
+    console.log(options.scales.xAxes)
+
     return (
+      
       <MDBContainer className='mt-3'>
-        <h5 className='mb-3'>Line Example</h5>
+        <h5 className='mb-3'>{title}</h5>
  
-        <div className="btn-group mb-3 mt-3" role="group">
+        <div className="btn-group mb-2 mt-3" role="group">
           <button
             className="btn btn-light btn-sm"
-            onClick={() => {}}>Last Month
+            onClick={() => timeChange('Month')}>Current Month
           </button>
           <button
             className="btn btn-light btn-sm"
-            onClick={() => {}}> Last Years
+            onClick={() => timeChange('Year')}> Current Year
           </button>
         </div>
-        <Line data={this.state.data} legend={legend} options={options} />
+        <Line data={graphData} legend={legend} options={options} />
       </MDBContainer>
     );
-  }
+
 };
 
 export default LineGraph

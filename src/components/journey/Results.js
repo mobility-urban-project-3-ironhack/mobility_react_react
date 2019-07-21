@@ -96,7 +96,7 @@ class Results extends React.Component {
         defaultZoom={15}
         arrDirections={this.state.directions}
         afterMapMount={this.afterMapMount}
-        dataMap={this.props.route}
+        dataMap={this.props.dataRoute}
         />  
       )}
       <hr/>

@@ -6,17 +6,17 @@ import Login from './Login';
 import Search from './journey/Search';
 import PrivateRoute from '../guards/PrivateRoute';
 import Historical from './user/Historical'; 
+import Register from './Register';
 
 
 
 function App() {
   return (
     <div  color='primary-color ' className="App">
-      <HeaderNav/>
       <Switch>
         <Route exact path='/' component={Home}/>
+        <Route exact path='/register' component={Register}/>
         <PrivateRoute exact path='/search' component={Search}/>
-        <PrivateRoute exact path='/historical' component={Historical}/>
         <Route exact path='/login' component={Login}/>
       </Switch>
     </div>

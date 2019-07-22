@@ -12,6 +12,8 @@ import { MDBIcon, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBContainer 
 import InputSelect from './InputSelect';
 import { SearchContext } from '../../contexts/SearchStore';
 
+const unit = [{name:'cost',unit:'euros', div:1}, {name:'co2',unit:'gr/Km',div:1}, {name:"totalCalories",unit:'calories',div:1},{name:"totalTime",unit:'mins',div:60} ,{name:"TotalDistance",unit:'km',div:1000} ]
+
 
 class CardExample extends React.Component {
 
@@ -52,9 +54,9 @@ class CardExample extends React.Component {
         className="d-flex flex-row align-items-center text-left px-1 my-3 py-1 mx-2">
               {isFavorite && <MDBIcon icon="star" size="2x" className='yellow-text starRecomendation imgr'/>}  
       <MDBCardImage
-          className='ml-3'
+          className='ml-1'
           style={{
-            width: '32px',
+            width: '40px',
 
           }}
           src={`/images/${type}.png`}
@@ -63,26 +65,27 @@ class CardExample extends React.Component {
           <MDBCardBody className="card-body w-75">
             <div className= "text-center d-flex ">
                 {arrData.map((type, i) => {
+                  console.log(type)
                   let ico=''
                   let colorIco = ''
                   switch(type){
                     case 'cost':
                       ico='euro-sign'
-                      colorIco='green-text'
+                      colorIco='grey-text'
                       break;
                     case 'co2':
                         ico='atom'
-                        colorIco='brown-text'
+                        colorIco='grey-text'
                         break;
                     case 'totalCalories':
                         ico='file'
-                        colorIco='orange-text'
+                        colorIco='grey-text'
                         break;
                     case 'totalTime':
                         ico='clock'
-                        colorIco='black-text'
+                        colorIco='grey-text'
                         break;
-                    case 'totalDistance':
+                    case 'TotalDistance':
                         ico='route'
                         colorIco='grey-text'
                         break;
@@ -92,14 +95,14 @@ class CardExample extends React.Component {
 
                   return (
                     <figure key={i}
-                      className="figure p-2 my-n3"
+                      className="figure my-n3"
                       style={{ width: '100%'} }
                     >
                       <MDBIcon 
                         icon={ico}
-                        size="2x" className={colorIco}/>
-                        <figcaption> 
-                          {datas[type][0]}
+                        size="1x" className={colorIco}/>
+                        <figcaption className='p-1'> 
+                          {`${Math.round((datas[type][0]/(unit.filter(a => a.name === type)[0].div))*100)/100} ${unit.filter(a => a.name === type)[0].unit}`}
                           {datas[type].length>1 && (` - ${datas[type][datas[type].length-1]}`)}
                         </figcaption>
                     </figure>

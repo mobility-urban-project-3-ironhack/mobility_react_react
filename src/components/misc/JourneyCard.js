@@ -26,18 +26,6 @@ class CardExample extends React.Component {
   }
 
 
-  // VAMOS POR AQUI! HAY QUE MANDAR LAS COORDENADAS A DATAMAP
-
-
-
-
-
-
-
-
-
-
-
 
   onHandleClick = (e) => {
     e.target.value !== undefined
@@ -50,13 +38,14 @@ class CardExample extends React.Component {
     const { type, data, isFavorite } = this.props
     const datas = {
       cost: callBackArrObj(data, 'cost'),
-      co: callBackArrObj(data, 'co2'),
-      calories: callBackArrObj(data, 'totalCalories'),
-      time: callBackArrObj(data, 'totalTime'),
-      distance: callBackArrObj(data, 'totalDistance'),
+      co2: callBackArrObj(data, 'co2'),
+      totalCalories: callBackArrObj(data, 'totalCalories'),
+      totalTime: callBackArrObj(data, 'totalTime'),
+      TotalDistance: callBackArrObj(data, 'totalDistance'),
     }
     const arrData = ['cost', 'co2', "totalCalories", "totalTime", "TotalDistance"]
-
+    const arrData2 = ['cost', 'co2', "calories", "time", "distance"]
+    console.log(JSON.stringify(datas))
     
     return (
       <MDBCard onClick={this.onHandleClick}
@@ -109,34 +98,18 @@ class CardExample extends React.Component {
                       <MDBIcon 
                         icon={ico}
                         size="2x" className={colorIco}/>
-                    {/*   <figcaption> {parseMinutes(datas[type][0])}
-                        {datas[type].length > 1 && ( - {parseMinutes(data[type][datas[type].length - 1]})
-                      </figcaption> */}
+                        <figcaption> 
+                          {datas[type][0]}
+                          {datas[type].length>1 && (` - ${datas[type][datas[type].length-1]}`)}
+                        </figcaption>
                     </figure>
-  
                   )
                 })}
               </div>
             <MDBCardText>
             
-              {/*
-              Price: <strong>{parsePrice(datas.cost[0])}</strong>
-              <button type="button" class="btn btn-lg btn-danger"
-                data-toggle="popover"
-                title="Popover title"
-                data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-
-              {datas.cost.length > 1 && (<strong> - {parsePrice(datas.cost[datas.cost.length - 1])}€ - </strong>)}
-              Co2: {(<strong>{parseCoKgm(datas.co[0])}</strong>)}
-              {datas.co.length > 1 && (<strong> - {parseCoKgm(datas.co[datas.co.length - 1])} - </strong>)}
-              Calories: {<strong>{parseCalories(datas.calories[0])}</strong>}
-              {datas.calories.length > 1 && (<strong> - {parseCalories(datas.calories[datas.calories.length - 1])} - </strong>)}
-              Time: {<strong>{parseMinutes(datas.time[0])}</strong>}
-              {datas.time.length > 1 && (<strong> - {parseMinutes(datas.time[datas.time.length - 1])} - </strong>)}
-              Distance: {<strong>{parseDistance(datas.distance[0])}</strong>}
-              {datas.distance.length > 1 && (<strong> - {parseDistance(datas.distance[datas.distance.length - 1])} - </strong>)} */}
          </MDBCardText>
-            {data.length > 1 && <InputSelect />}
+            {datas.length > 1 && <InputSelect />}
           </MDBCardBody>
         )}
       </MDBCard>

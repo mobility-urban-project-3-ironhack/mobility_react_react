@@ -16,6 +16,7 @@ const callBackArrObj = (arr, element) => {
       })
     })
   }
+
   return elementArray.sort((a,b)=>a-b)
 }
 

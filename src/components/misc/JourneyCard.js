@@ -71,7 +71,7 @@ class CardExample extends React.Component {
                   switch(type){
                     case 'cost':
                       ico='euro-sign'
-                      colorIco='grey-text'
+                      colorIco='black-text'
                       break;
                     case 'co2':
                         ico='atom'

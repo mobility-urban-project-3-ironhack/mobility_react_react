@@ -27,10 +27,12 @@ class ListType extends React.Component {
     <div 
       className={this.state.filtered.data.length >= 1 
         ? "d-flex mt-n2" 
-        : "d-flex" }>
+        : "d-flex" }
+      >
       <div className={this.state.filtered.data.length >= 1 
       ? "text-center d-flex flex-column flex-wrap w-10" 
-      : "text-center d-flex flex-wrap justify-content-around bg-white mt-n2"}>
+      : "text-center d-flex flex-wrap justify-content-around bg-white mt-n2"}
+      style = {{'backgroundColor':'#2bbbad'}}>
       {Object.keys(this.props.results).map((type, i) => (
         <figure 
           className={this.state.filtered.data.length >= 1 

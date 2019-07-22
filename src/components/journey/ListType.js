@@ -29,27 +29,25 @@ class ListType extends React.Component {
         ? "d-flex mt-n2" 
         : "d-flex" }
       >
-      <div className={this.state.filtered.data.length >= 1 
+      <div className={`${this.state.filtered.data.length >= 1 
       ? "text-center d-flex flex-column flex-wrap w-10" 
-      : "text-center d-flex flex-wrap justify-content-around bg-white mt-n2"}
-      style = {{'backgroundColor':'#2bbbad'}}>
+      : "text-center d-flex flex-wrap justify-content-around mt-n2"}`}>
       {Object.keys(this.props.results).map((type, i) => (
         <figure 
-          className={this.state.filtered.data.length >= 1 
+          className={`${this.state.filtered.data.length >= 1 
             ? "figure mb-n1 bg-white" 
-            : "figure p-2"}
+            : "figure p-2 bg-white"} m-1`}
           style={this.state.filtered.data.length >= 1 ? { width: '100%' } : { width: '18%' } }
+          key={i}
         >
           <img 
           className=' img-fluid'
           name={type}
           src={`/images/${type}.png`} 
           onClick={(e)=>this.handleDataFiltered(this.props.results, e)}
-          alt={type} 
-          key={i}
-          
+          alt={type}   
         />
-         {this.state.filtered.data.length < 1 && (<figcaption class="figure-caption">{type.toUpperCase()}</figcaption>) }
+         {this.state.filtered.data.length < 1 && (<figcaption className="figure-caption text-center"><small>{type.toUpperCase()}</small></figcaption>) }
         </figure>
         
       ) )}      

@@ -51,7 +51,7 @@ class CardExample extends React.Component {
     
     return (
       <MDBCard onClick={this.onHandleClick}
-        className="d-flex flex-row align-items-center text-left px-1 my-3 py-1 mx-2">
+        className="d-flex flex-row justify-content-around align-items-center text-left px-1 my-3 py-1 mx-2">
               {isFavorite && <MDBIcon icon="star" size="2x" className='yellow-text starRecomendation imgr'/>}  
       <MDBCardImage
           className='ml-1'

@@ -8,8 +8,8 @@ import '../home.css'
 const Home = () => (    
   <MDBContainer fluid className="text-center m-0 p-0" style={{backgroundColor: '#fafafa '}}>
     <div style = {{"width" :'100%',"height":'75vh'}} className ='d-inline-flex flex-column justify-content-center align-items-center bg-image'>
-    <img src='/images/logo_mu.png' style = {{"width" :200,"height":200}} alt='Mobility Urban'/>
-{/*    PRUEBA ESTO  Y QUITA LA IMAGEN DE ARRIBA -------
+    {/* <img src='/images/logo_mu.png' style = {{"width" :200,"height":200}} alt='Mobility Urban'/>  */}
+ {/* PRUEBA ESTO  Y QUITA LA IMAGEN DE ARRIBA ------- */}
     <div style={{position: 'relative'}}>
       <img src="/images/logo_mu1.png" className="" alt="Movility Urban"/>
       <img src="/images/logo_mu2.png" className="imgr" alt="Movility Urban" style={{position: 'absolute',top: 0,left: 0 }}/>

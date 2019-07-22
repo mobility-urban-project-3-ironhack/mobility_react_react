@@ -1,6 +1,9 @@
 import React from 'react';
 import JourneyCard from '../misc/JourneyCard'
 import { SearchContext } from '../../contexts/SearchStore';
+import { MDBIcon } from 'mdbreact';
+
+const images = [{name: 'driving',img:'car'},{name:'walking',img:'walking'},{name:'bus',img:'bus'},{name:'subway',img:'subway'},{name: 'vtc',img:'car-side'},{name: 'carSharing',img:'car-side'},{name: 'taxi',img:'taxi'},{name: 'moto',img:'motorcycle'},{name: 'bicycling',img:'bicycle'},{name: 'scooter',img:'map-marker-alt'}]
 
 class ListType extends React.Component {
 
@@ -22,7 +25,7 @@ class ListType extends React.Component {
 
   render() {
     
-
+    
     return (    
     <div 
       className={this.state.filtered.data.length >= 1 
@@ -31,7 +34,9 @@ class ListType extends React.Component {
       <div className={this.state.filtered.data.length >= 1 
       ? "text-center d-flex flex-column flex-wrap w-10" 
       : "text-center d-flex flex-wrap justify-content-around bg-white mt-n2"}>
-      {Object.keys(this.props.results).map((type, i) => (
+      {Object.keys(this.props.results).map((type, i) =>{ 
+        console.log(type)
+        return (
         <figure 
           className={this.state.filtered.data.length >= 1 
             ? "figure mb-n1 bg-white" 
@@ -47,10 +52,17 @@ class ListType extends React.Component {
           key={i}
           
         />
+
+      {/* <MDBIcon icon={type !== 'undefined' && images.filter(a => a.name == type.toLowerCase())[0].img} 
+        
+        onClick={(e)=>this.handleDataFiltered(this.props.results, e)}
+        
+        key={i} /> */}
+
          {this.state.filtered.data.length < 1 && (<figcaption class="figure-caption">{type.toUpperCase()}</figcaption>) }
         </figure>
         
-      ) )}      
+      )} )}      
       </div>
       {this.state.filtered.data.length >= 1 && (
       <div  style={{width:'89%'}} className='mt-n3'>

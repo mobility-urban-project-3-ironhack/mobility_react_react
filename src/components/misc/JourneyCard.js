@@ -26,19 +26,6 @@ class CardExample extends React.Component {
   }
 
 
-  // VAMOS POR AQUI! HAY QUE MANDAR LAS COORDENADAS A DATAMAP
-
-
-
-
-
-
-
-
-
-
-
-
   onHandleClick = (e) => {
     e.target.value !== undefined
       ? this.props.handleDataMapChange([this.props.data[e.target.value]])

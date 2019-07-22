@@ -3,7 +3,7 @@ import JourneyCard from '../misc/JourneyCard'
 import { SearchContext } from '../../contexts/SearchStore';
 import { MDBIcon } from 'mdbreact';
 
-const images = [{name: 'driving',img:'car'},{name:'walking',img:'walking'},{name:'bus',img:'bus'},{name:'subway',img:'subway'},{name: 'vtc',img:'car-side'},{name: 'carSharing',img:'car-side'},{name: 'taxi',img:'taxi'},{name: 'moto',img:'motorcycle'},{name: 'bicycling',img:'bicycle'},{name: 'scooter',img:'map-marker-alt'}]
+const images = [{name: 'bicycling',img:'fas fa-bicycle'},{name: 'driving',img:'fas fa-car'},{name:'walking',img:'fas fa-walking'},{name:'bus',img:'fas fa-bus'},{name:'subway',img:'fas fa-subway'},{name: 'vtc',img:'fas fa-car-side'},{name: 'taxi',img:'fas fa-taxi'},{name: 'moto',img:'fas fa-motorcycle'},{name: 'carSharing',img:'fas fa-car-alt'},{name: 'scooter',img:'fas fa-map-marker-alt'}]
 
 class ListType extends React.Component {
 
@@ -16,7 +16,7 @@ class ListType extends React.Component {
 
   handleDataFiltered(results, e) {
     this.setState({
-      filtered: {
+      filtered: {                
         data: results[e.target.name],
         type: e.target.name
       }
@@ -50,14 +50,15 @@ class ListType extends React.Component {
           onClick={(e)=>this.handleDataFiltered(this.props.results, e)}
           alt={type} 
           key={i}
-          
         />
 
-      {/* <MDBIcon icon={type !== 'undefined' && images.filter(a => a.name == type.toLowerCase())[0].img} 
-        
-        onClick={(e)=>this.handleDataFiltered(this.props.results, e)}
-        
-        key={i} /> */}
+        {/* <i className={`${images.filter(a => a.name === type)[0].img} fa-3x`}
+          name={type}
+          onClick={(e)=>this.handleDataFiltered(this.props.results, e)}
+          alt={type} 
+          key={i}></i> */}
+
+
 
          {this.state.filtered.data.length < 1 && (<figcaption class="figure-caption">{type.toUpperCase()}</figcaption>) }
         </figure>

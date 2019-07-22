@@ -103,7 +103,7 @@ class Register extends React.Component {
     
     return (
       <div>
-      <HeaderNav/>
+      <HeaderNav color={'cloudy-knoxville-gradient'}/>
       <MDBContainer className="mt-5 pt-5" style={{'backgroundColor' : '#2bbbad', 'height':'94vh'}}>
         <MDBRow>
           <MDBCol>
@@ -113,9 +113,13 @@ class Register extends React.Component {
                   className="needs-validation"
                   onSubmit={this.handleSubmit}
                   noValidate
+                  autocomplete="off"
                 >
+                 
+                  
                   <p className="h5 text-center mb-4">Register</p>
                     <div className="grey-text">
+                   
                     <MDBInput
                         background
                         label="Type your username"
@@ -130,10 +134,12 @@ class Register extends React.Component {
                         touch={touch.username}
                         error={errors.username}
                         required
-                        autocomplete = 'off'
+                        autocomplete="off"
                       />
                       <div className="valid-feedback">Looks good!</div>
                       <div className="invalid-feedback">Provide a valid name!</div>
+
+            
 
                       <MDBInput
                         background
@@ -149,10 +155,11 @@ class Register extends React.Component {
                         touch={touch.email}
                         error={errors.email}
                         required
-                        autocomplete = 'off'
+                        autocomplete="off"
                       />
                       <div className="valid-feedback">Looks good!</div>
                       <div className="invalid-feedback">Provide a valid email!</div>
+                      
                   
                       <MDBInput
                         background
@@ -167,6 +174,7 @@ class Register extends React.Component {
                         touch={touch.password}
                         error={errors.password}
                         required
+                        autocomplete="off"
                       />
                       <div className="invalid-feedback">
                         Please provide a valid password.

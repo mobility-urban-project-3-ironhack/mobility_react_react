@@ -5,6 +5,7 @@ import CardExample from '../misc/JourneyCard';
 import ListType from './ListType'
 import { SearchContext } from '../../contexts/SearchStore';
 
+
 const key = process.env.REACT_APP_GOOGLE_MAP_KEY 
 
 class Results extends React.Component {

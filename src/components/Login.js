@@ -98,7 +98,7 @@ class Login extends React.Component {
     
     return (
       <div>
-      <HeaderNav/>
+      <HeaderNav color={'cloudy-knoxville-gradient'}/>
       <MDBContainer className="mt-5 pt-5" style={{'backgroundColor' : '#2bbbad', 'height':'94vh'}}>
         <MDBRow>
           <MDBCol>

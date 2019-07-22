@@ -98,7 +98,7 @@ class Search extends React.Component {
     (!this.props.request) ? marginPadding ="text-center mt-4 pt-5 px-3"  : marginPadding ="text-center mt-2 pt-2 px-0"
     return (
       <div>
-      <HeaderNav/>
+      <HeaderNav color ={'default-color'}/>
       <MDBContainer 
       className={marginPadding}>
         {!this.props.request && (

@@ -88,9 +88,9 @@ const LineGraph = ({inputs,title,labelData,timeChange,displayAxe}) =>  {
     return (
       
       <MDBContainer className='mt-3'>
-        <h5 className='mb-3'>{title}</h5>
+        <h5 className='mb-2'>{title}</h5>
  
-        <div className="btn-group mb-2 mt-3" role="group">
+        <div className="btn-group mb-4 mt-2" role="group">
           <button
             className="btn btn-light btn-sm"
             onClick={() => timeChange('Month')}>Current Month

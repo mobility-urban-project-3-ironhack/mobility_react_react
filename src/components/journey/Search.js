@@ -128,7 +128,7 @@ class Search extends React.Component {
                   displayAxe = {this.state.co2Unit === 'Year' ? true : false}/>
               </div>
 
-              <div className = 'mt-5 mb-3'>
+              <div className = 'mt-5 mb-4'>
                 <LineGraph 
                   inputs = {this.state.costUnit === 'Year' ? this.state.priceYear : this.state.priceMonth}
                   title = 'COST EVOLUTION'

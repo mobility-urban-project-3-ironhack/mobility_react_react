@@ -25,46 +25,19 @@ class Results extends React.Component {
   }
 
   componentDidMount() {   
-    
-    const route = this.props.dataRoute
-
-    for (let i = 0; i <= route.length - 2; i++) {
-      const direction = new window.google.maps.DirectionsService()
-      direction.route({
-        origin: new window.google.maps.LatLng(route[i].lat, route[i].lng),
-        destination: new window.google.maps.LatLng(route[i + 1].lat, route[i + 1].lng),
-        waypoints: [],
-        travelMode: route[i + 1].transitMode.toUpperCase(),
-      }, (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          this.setState({
-            directions: [...this.state.directions, result],
-          }, ()=> console.log('directions......'+ JSON.stringify(this.state.directions)));
-        } else {
-          console.error(`error fetching directions ${result}`);
-        }
-      })
-    }/* 
-    this.setState({
-      waypoints: this.props.dataRecomendation[0].wayPoints,
-      dataRecomendation: this.props.dataRecomendation,
-      origin: {
-        lat: this.props.request.origin.coords.lat,
-        lng: this.props.request.origin.coords.lng,
-      },
-      destination: {
-        lat: this.props.request.destination.coords.lat,
-        lng: this.props.request.destination.coords.lng,
-      },
-      route: this.props.dataRoute,
-      })  */
+    this.CreateRoute()    
   }
 
-  
-  afterMapMount() {
-   /*  const { route } = this.state
-    
+  CreateRoute(){
+
+    const route = this.props.dataRoute
+
+    console.log('dataRoute' + JSON.stringify(this.props.dataRoute))
+
     for (let i = 0; i <= route.length - 2; i++) {
+      if(route[i+1].transitMode === 'moto' || route[i+1].transitMode === 'scooter') { 
+        route[i+1].transitMode = 'driving'
+      }
       const direction = new window.google.maps.DirectionsService()
       direction.route({
         origin: new window.google.maps.LatLng(route[i].lat, route[i].lng),
@@ -80,41 +53,38 @@ class Results extends React.Component {
           console.error(`error fetching directions ${result}`);
         }
       })
-    } */
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.dataRoute !== this.props.dataRoute ) {
+      this.setState({directions: []}, this.CreateRoute())
+    }
   }
 
   render() {
-    console.log(this.state.directions)
     return (    
-    <MDBContainer fluid className="text-center px-1">
+    <MDBContainer fluid className="text-center px-1 bg-greenMU">
       {this.state.directions.length>=1 && (
         <MapComponent 
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `500px`, width:`100%` }} />}
+        containerElement={<div style={{ height: `400px`, width:`100%` }} />}
         mapElement={<div style={{ height: `100%`, width:`100%` }} />}
         defaultZoom={15}
         arrDirections={this.state.directions}
         afterMapMount={this.afterMapMount}
         dataMap={this.props.dataRoute}
+        centerMap={this.props.request.origin.coords}
         />  
       )}
-      <hr/>
-
       {this.props.dataRecomendation && (<div>{
       <CardExample 
         type='driving' 
         data={this.props.dataRecomendation} 
         isFavorite={true}
-      />}<hr/></div>)}
+      />}</div>)}
       <ListType search={this.props.search}/>
-      
-     {/*  {Object.keys(this.props.results).map((type, i) => (
-        <CardExample 
-          type={type} 
-          data={ this.props.results[type]} 
-          key={i}
-        />))} */}
    </MDBContainer>
   )}
 }

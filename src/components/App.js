@@ -1,11 +1,9 @@
 import React from 'react';
-import HeaderNav from './misc/HeaderNav';
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home';
 import Login from './Login';
 import Search from './journey/Search';
 import PrivateRoute from '../guards/PrivateRoute';
-import Historical from './user/Historical'; 
 import Register from './Register';
 
 

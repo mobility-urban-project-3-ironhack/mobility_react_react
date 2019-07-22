@@ -15,30 +15,39 @@ class SearchStore extends React.Component {
           response => {
             this.onHandleRecomendation(response.data)
             this.onResultsChange(response.data)
+            this.setState({
+              dataRecomendation: recomendationJourney(response.data),
+            })
           },
           error => console.log(error)
         )
     }, ()=>{console.log('request guardado: ' + this.state.request)})
-  }
+  }     
 
   onHandleRecomendation(results){
-    let arrWayPoint = recomendationJourney(results)[0].wayPoints
+    let arrWayPoint = []
+    !this.state.route 
+      ? arrWayPoint = recomendationJourney(results)[0].wayPoints
+      : arrWayPoint = results[0].wayPoints
 
     this.setState({
-      dataRecomendation: recomendationJourney(results),
-      route: [{...this.state.request.origin.coords, transitMode: 'none'}, ...arrWayPoint.map(waypoint => {
+      route: [{...this.state.request.origin.coords, transitMode: 'WALKING'}, ...arrWayPoint.map(waypoint => {
         return {
         transitMode: waypoint.transitMode,
         lat: waypoint.wayPoint.lat,
         lng: waypoint.wayPoint.lng
-        } }), {...this.state.request.destination.coords, transitMode: 'none'}],
-    }) 
+        } }), {...this.state.request.destination.coords, transitMode: 'WALKING'}],
+    })
   }
+  
 
 
   onResultsChange = results => this.setState({ results })
   
   onDataMapChange = dataMap => {
+    this.onHandleRecomendation(dataMap)
+    console.log('dataMap: ' + JSON.stringify(dataMap));
+    //console.log('dataMaprecom: ' + this.onHandleRecomendation(dataMap))
     //this.setState({route: dataMap})
   }
 

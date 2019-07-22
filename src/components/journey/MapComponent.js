@@ -6,7 +6,7 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
   <div>
     <GoogleMap
       defaultZoom={props.defaultZoom}
-      defaultCenter={props.userLocation}
+      defaultCenter={props.centerMap}
       defaultOptions={{
         streetViewControl: false,
         scaleControl: false,
@@ -18,11 +18,11 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
       }}>
 
       {props.arrDirections.map((direction, i) => {
-        console.log(direction+ ' dasdf ' + i)
         // aqui una función para comprobar si es andando y meter las options para puntitos.
         return (
           <DirectionsRenderer key={i} options={{
-            polylineOptions: {
+            preserveViewport:true,
+           /*  polylineOptions: {
               strokeColor: 'DarkSlateGray ',
               strokeWeight: '0px',
               icons: [{
@@ -33,7 +33,7 @@ const MapComponent = withScriptjs(withGoogleMap((props) => (
                 offset: '0',
                 repeat: '20px'
               }],
-            },
+            }, */
   
           suppressMarkers: true,
           

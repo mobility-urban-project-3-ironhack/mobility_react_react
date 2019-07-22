@@ -34,8 +34,11 @@ class HeaderNav extends React.Component {
       <header>
             <MDBNavbar color='cloudy-knoxville-gradient' dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/search">
-                <img src='/images/logo_mu.png' style = {{"width" :40,"height":40}}/>
-                  {/* <strong className='black-text'>Mobility Urban</strong> */}
+        {/*   <div style={{position: 'relative'}}>
+                <img src="/images/logo_mu1.png" className="" alt="Movility Urban" style={{width:40,height:40}}/>
+                <img src="/images/logo_mu2.png" className="imgr" alt="Movility Urban" style={{width:40,height:40, position: 'absolute',top: 0,left: 0 }}/>
+              </div>*/}
+                <img src='/images/logo_mu.png' style = {{"width" :40,"height":40}} alt='Movility Urban'/> 
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick }  />
               <MDBCollapse isOpen = { this.state.collapse } navbar >
@@ -50,14 +53,9 @@ class HeaderNav extends React.Component {
                   )}
                   {!this.props.results && (
                   <MDBNavItem>
-                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/">
+                      <MDBNavLink onClick={()=>this.props.handleResultsChange()} to="/search">
                         <MDBIcon icon="search" size="2x" className='teal-text'/>
                       </MDBNavLink>
-                  </MDBNavItem>
-                  )}
-                  {this.props.isAuthenticated() && (
-                  <MDBNavItem>
-                      <MDBNavLink to="/historical"><MDBIcon icon="user-edit" size="2x" className='teal-text'/></MDBNavLink>
                   </MDBNavItem>
                   )}
                   {this.props.isAuthenticated() && (

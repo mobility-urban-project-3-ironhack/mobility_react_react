@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../home.css'
 import { AuthContext } from '../contexts/AuthStore';
 
+// cambio vamiob
 
 
 class Home extends React.Component {
